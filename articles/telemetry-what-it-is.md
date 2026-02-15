@@ -2,8 +2,6 @@
 title: Telemetry: what it really is
 ---
 
-# Telemetry: what it really is
-
 ## Why telemetry is not “just data”
 Telemetry is a system: sensors → acquisition → synchronization → interpretation.
 Data is not information, and information is not a decision.
