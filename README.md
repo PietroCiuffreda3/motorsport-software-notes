@@ -1,4 +1,6 @@
-# Motorsport Software Notes
+© 2026 Pietro Ciuffreda.
+Author retains copyright.
+This text is part of an ongoing research and writing project.
 
 This repository collects notes, articles, and early explorations related to
 software engineering and data analysis applied to motorsport and racing simulation.
