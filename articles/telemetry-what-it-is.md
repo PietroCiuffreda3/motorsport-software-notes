@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Telemetry: what it really is
-date: 18-02-2026
+date: 2026-02-18
 ---
 
 ## Summary

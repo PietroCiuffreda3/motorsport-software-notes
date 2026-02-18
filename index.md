@@ -1,7 +1,9 @@
 ---
+layout: home
+title: Motorsport Software Notes
 ---
 
-Notes and technical articles on software engineering and data analysis applied to motorsport and racing simulation.
+A public notebook on software engineering and data analysis applied to motorsport and racing simulation.
 
 ## Articles
-- [Telemetry: what it really is](articles/telemetry-what-it-is.html)
+- **2026-02-18** — [Telemetry: what it really is](articles/telemetry-what-it-is.html)

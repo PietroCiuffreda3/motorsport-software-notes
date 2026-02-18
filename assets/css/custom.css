@@ -1,8 +1,153 @@
+/* ---------- Base / Scroll safety ---------- */
 html, body {
   height: auto;
   overflow-y: auto;
 }
 
+/* ---------- Typography ---------- */
+:root {
+  --text-max-width: 72ch;
+  --body-font-size: 18px;
+  --body-line-height: 1.7;
+  --small-font-size: 0.95rem;
+}
+
+body {
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p, li {
+  max-width: var(--text-max-width);
+}
+
+small, .small {
+  font-size: var(--small-font-size);
+}
+
+/* ---------- Content width / Centering ---------- */
+/* Minima uses .wrapper and .page-content */
+.wrapper {
+  max-width: 980px;      /* overall container */
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
 .page-content {
-  overflow: visible;
+  padding: 28px 0;
+}
+
+.post, .page, .home {
+  display: block;
+}
+
+/* Make main text column comfortable */
+.post-content, .page-content .wrapper {
+  /* keep it readable; headings can exceed with their own styles */
+}
+
+/* ---------- Headings hierarchy ---------- */
+h1, h2, h3 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: var(--text-max-width);
+}
+
+h1 {
+  margin-top: 0.6em;
+  margin-bottom: 0.35em;
+  font-size: 2.0rem;
+}
+
+h2 {
+  margin-top: 1.4em;
+  margin-bottom: 0.45em;
+  font-size: 1.45rem;
+}
+
+h3 {
+  margin-top: 1.1em;
+  margin-bottom: 0.35em;
+  font-size: 1.18rem;
+}
+
+/* ---------- Links ---------- */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Lists & spacing ---------- */
+ul, ol {
+  max-width: var(--text-max-width);
+}
+
+li {
+  margin: 0.25em 0;
+}
+
+hr {
+  max-width: var(--text-max-width);
+  margin: 2em 0;
+}
+
+/* ---------- Blockquotes (technical note style) ---------- */
+blockquote {
+  max-width: var(--text-max-width);
+  margin: 1.2em 0;
+  padding: 0.8em 1em;
+  border-left: 3px solid #d0d0d0;
+  background: #fafafa;
+}
+
+/* ---------- Code (inline + blocks) ---------- */
+code {
+  font-size: 0.95em;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #0b0b0b; /* if too dark, tell me and we lighten */
+}
+
+pre code {
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
+/* ---------- Tables ---------- */
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+thead th {
+  border-bottom: 2px solid #dcdcdc;
+}
+
+/* ---------- Article meta (date, etc.) ---------- */
+.post-meta {
+  max-width: var(--text-max-width);
+  margin-bottom: 1em;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- Footer tightening ---------- */
+.site-footer {
+  padding: 22px 0;
 }
