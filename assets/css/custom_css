@@ -1,0 +1,13 @@
+/* Fix scrolling issues */
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+
+.page-content {
+  overflow: visible;
+}
+
+.wrapper {
+  min-height: auto;
+}
