@@ -10,15 +10,20 @@ The goal is not to build a finished product immediately, but to:
 
 ## Contents
 
-- `/articles`  
+- [articles](\article\README.md) 
   Drafts and published versions of technical articles.
 
-- `/notes`  
+- [notes](\notes\README.md)
   Technical notes, diagrams, and reflections on telemetry, data, and software design.
 
-- `ideas.md`  
+- [idea](idea.md)  
   Open questions and topics to explore.
 
 ## Status
 
 This repository is a work in progress and evolves together with ongoing study and writing.
+
+---
+© 2026 Pietro Ciuffreda.  
+Author retains copyright.  
+This text is part of an ongoing research and writing project.
