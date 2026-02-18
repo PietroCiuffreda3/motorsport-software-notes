@@ -3,4 +3,4 @@
 - How should telemetry be presented to humans?
 - What is missing in current sim racing analysis tools?
 ---
-[back](\README.md)
+[HOME](https://pietrociuffreda3.github.io/motorsport-software-notes/)
