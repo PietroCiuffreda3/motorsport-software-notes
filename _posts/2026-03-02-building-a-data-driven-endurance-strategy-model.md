@@ -1,188 +1,152 @@
 ---
 layout: post
 title: "Building a Data-Driven Endurance Strategy Model"
+subtitle: "Transforming lap-by-lap data into structured strategic decisions during long-distance races."
 hero: /assets/img/progetto/immagine.jpg
-hero_alt: "descrizione"
-hero_caption: "Transforming lap-by-lap data into structured strategic decisions during long-distance races."
+hero_alt: "Endurance strategy: pitwall decision making"
+hero_caption: "Turning uncertainty into structured choices across stints, traffic, fuel and tyre degradation."
 ---
 
-<div class="sticky-split">
-  <article>
+## Summary
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Endurance strategy model">
-    </figure>
-    <section class="panel">
-      <div>
-        <h2>Summary</h2>
-        <p>Endurance racing rarely fails because of one mistake. It fails because small uncertainties accumulate over time.</p>
-        <a href="{{ '/' | relative_url }}">HOME</a>
-      </div>
-    </section>
+Endurance racing rarely fails because of one mistake.  
+It fails because small uncertainties accumulate over time.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Strategy framework">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        # The problem: instinct vs structure
+This article describes a framework designed to reduce that uncertainty by turning lap data into a consistent decision process — without replacing human judgment.
 
-        In endurance racing, decisions are made under pressure:
+## The problem: instinct vs structure
 
-        Is the tyre still stable?  
-        Can we extend the stint?  
-        Are we fuel-safe for the next window?  
-        Is the pace drop degradation or traffic?
+In endurance racing, decisions are made under pressure:
 
-        Instinct matters.  
-        Experience matters.
+- Is the tyre still stable?
+- Can we extend the stint?
+- Are we fuel-safe for the next window?
+- Is the pace drop degradation or traffic?
 
-        But instinct without structure introduces bias.
+Instinct matters.  
+Experience matters.
 
-        The goal was not to eliminate human judgment.  
-        It was to support it with consistent logic.
-      </div>
-    </section>
+But instinct without structure introduces bias.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Architecture layer">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        # Phase 1 — Building the architecture
+The goal was not to eliminate human judgment.  
+It was to support it with consistent logic.
 
-        The model was structured into four layers.
+## Phase 1 — Building the architecture
 
-        ## 1. Lap Layer
-        Raw data for every lap:
-        - stint ID  
-        - driver  
-        - lap time  
-        - tyre percentage  
-        - traffic flags  
-        - dirty lap filtering  
+The model was structured into four layers.
 
-        This layer isolates noise from usable information.
+### 1) Lap layer
 
-        ## 2. Stint Layer
-        Aggregation of clean laps to extract:
-        - core pace  
-        - end-of-stint pace  
-        - degradation delta  
-        - fuel consumption trend  
-        - tyre end percentage  
+Raw data for every lap:
 
-        At this stage, trend direction mattered more than raw averages.
+- stint ID
+- driver
+- lap time
+- tyre percentage
+- traffic flags
+- dirty lap filtering
 
-        ## 3. Decision Console
-        A scenario-based interface simulating:
-        - driver selection  
-        - traffic assumptions  
-        - push mode  
-        - compound selection  
-        - target stint length  
+This layer isolates noise from usable information.
 
-        The objective: test decisions before executing them.
+### 2) Stint layer
 
-        ## 4. Adjustable Inputs
-        Thresholds and multipliers allowed adaptation to:
-        - compound behaviour  
-        - traffic intensity  
-        - push level  
-        - degradation sensitivity  
+Aggregation of clean laps to extract:
 
-        This transformed the model from static to adaptive.
-      </div>
-    </section>
+- core pace
+- end-of-stint pace
+- degradation delta
+- fuel consumption trend
+- tyre end percentage
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Degradation modelling">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        # Phase 2 — Moving beyond averages
+At this stage, trend direction mattered more than raw averages.
 
-        Endurance degradation is rarely linear.
+### 3) Decision console
 
-        The model introduced:
+A scenario-based interface simulating:
 
-        - **Degradation slope analysis**  
-          Detecting acceleration before visible drop.
+- driver selection
+- traffic assumptions
+- push mode
+- compound selection
+- target stint length
 
-        - **Consistency index**  
-          Monitoring variance increase before a tyre cliff.
+The objective: test decisions before executing them.
 
-        - **Multi-factor cliff detection logic**  
-          Combining trend, delta vs core pace, and tyre state.
+### 4) Adjustable inputs
 
-        - **Fuel–tyre interaction modelling**  
-          Recognising that load influences degradation.
+Thresholds and multipliers allowed adaptation to:
 
-        - **Strategy confidence indicator**  
-          Estimating dataset reliability before suggesting decisions.
+- compound behaviour
+- traffic intensity
+- push level
+- degradation sensitivity
 
-        The shift was conceptual.
+This transformed the model from static to adaptive.
 
-        From: “What is the average pace?”  
-        To: “How stable is performance, and how likely is deterioration?”
-      </div>
-    </section>
+## Phase 2 — Moving beyond averages
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Race application">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        # Phase 3 — Real race application
+Endurance degradation is rarely linear.
 
-        The framework was used during a 12-hour endurance race at the Circuit de la Sarthe.
+The model introduced:
 
-        It was not an automated strategy engine.  
-        It was a structured reasoning tool.
+- **Degradation slope analysis**  
+  Detecting acceleration before visible drop.
 
-        During the race, it supported:
+- **Consistency index**  
+  Monitoring variance increase before a tyre cliff.
 
-        - validation of expected degradation behaviour  
-        - anticipation of potential cliff windows  
-        - stint extension or reduction decisions  
-        - fuel vs tyre trade-offs  
+- **Multi-factor cliff detection logic**  
+  Combining trend, delta vs core pace, and tyre state.
 
-        Its primary contribution was not prediction.
+- **Fuel–tyre interaction modelling**  
+  Recognising that load influences degradation.
 
-        It was clarity.
-      </div>
-    </section>
+- **Strategy confidence indicator**  
+  Estimating dataset reliability before suggesting decisions.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Open questions">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        # What this project is — and is not
+The shift was conceptual.
 
-        This is not a finished product.  
-        It is not a black-box solution.
+From: “What is the average pace?”  
+To: “How stable is performance, and how likely is deterioration?”
 
-        It is a structured approach to managing uncertainty in long-distance racing.
+## Phase 3 — Real race application
 
-        The operational framework remains private.  
-        The conceptual development will continue to be documented.
+The framework was used during a 12-hour endurance race at the Circuit de la Sarthe.
 
-        # Open questions
+It was not an automated strategy engine.  
+It was a structured reasoning tool.
 
-        - probabilistic cliff modelling  
-        - uncertainty quantification via scenario simulation  
-        - robustness metrics across compounds  
-        - transition from spreadsheet logic to software implementation  
+During the race, it supported:
 
-        Endurance strategy is not about certainty.  
-        It is about controlled risk over time.
+- validation of expected degradation behaviour
+- anticipation of potential cliff windows
+- stint extension or reduction decisions
+- fuel vs tyre trade-offs
 
-        This project aims to formalise that process.
+Its primary contribution was not prediction.
 
-        [HOME]({{ '/' | relative_url }})
-      </div>
-    </section>
+It was clarity.
 
-  </article>
-</div>
+## What this project is — and is not
+
+This is not a finished product.  
+It is not a black-box solution.
+
+It is a structured approach to managing uncertainty in long-distance racing.
+
+The operational framework remains private.  
+The conceptual development will continue to be documented.
+
+## Open questions
+
+- probabilistic cliff modelling
+- uncertainty quantification via scenario simulation
+- robustness metrics across compounds
+- transition from spreadsheet logic to software implementation
+
+Endurance strategy is not about certainty.  
+It is about controlled risk over time.
+
+This project aims to formalise that process.
+
+[HOME]({{ '/' | relative_url }})

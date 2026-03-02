@@ -1,207 +1,155 @@
 ---
 layout: post
 title: "Telemetry: What It Is"
+subtitle: "Understanding telemetry in motorsport software."
 hero: /assets/img/progetto/immagine.jpg
-hero_alt: "descrizione"
-hero_caption: "Understanding telemetry in motorsport software."
+hero_alt: "Telemetry in motorsport: car on track"
+hero_caption: "Telemetry is a system: measurement → interpretation → decisions."
 ---
 
-<div class="sticky-split">
-  <article>
+## Summary
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry cover">
-    </figure>
-    <section class="panel">
-      <div>
-        <h2>Summary</h2>
-        <p>Telemetry isn’t “having data”. It’s a system: measurement → interpretation → decisions.</p>
-        <a href="{{ '/' | relative_url }}">HOME</a>
-      </div>
-    </section>
+Telemetry isn’t “having data”. It’s a system: measurement → interpretation → decisions.  
+Its value does not come from the number of channels you log, but from how reliably the pipeline turns signals into actions.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        ## What telemetry is
+## What telemetry is
 
-        In both real motorsport and racing simulation, telemetry is not a collection of numbers.
+In both real motorsport and racing simulation, telemetry is not a collection of numbers.
 
-        It is a system.
+It is a system.
 
-        Sensors measure physical variables.  
-        Signals are transmitted or logged.  
-        Data is synchronized in time.  
-        Engineers and drivers interpret patterns.
+Sensors measure physical variables.  
+Signals are transmitted or logged.  
+Data is synchronized in time.  
+Engineers and drivers interpret patterns.  
+Only at the end of this chain does performance change.
 
-        Only at the end of this chain does performance change.
+This sequence matters because each stage transforms the previous one.
 
-        This sequence matters because each stage transforms the previous one.  
-        Raw measurements are not yet meaningful.  
-        They become meaningful only when placed in context.
+Raw measurements are not yet meaningful.  
+They become meaningful only when placed in context.
 
-        Speed, for example, is a simple metric.  
-        Speed over distance, compared across laps, aligned with throttle input and brake pressure, begins to describe behavior.
+Speed, for example, is a simple metric.  
+Speed over distance, compared across laps, aligned with throttle input and brake pressure, begins to describe behavior.
 
-        Telemetry, therefore, is not about quantity.  
-        It is about structure.
+Telemetry, therefore, is not about quantity.  
+It is about structure.
 
-        The difference is subtle but consequential.  
-        More channels do not necessarily improve understanding.  
-        They increase complexity.
+The difference is subtle but consequential.  
+More channels do not necessarily improve understanding.  
+They increase complexity.
 
-        Whether that complexity becomes insight depends on how the system is designed — and on how humans interact with it.
-      </div>
-    </section>
+Whether that complexity becomes insight depends on how the system is designed — and on how humans interact with it.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        ## Data, information, decision
+## Data, information, decision
 
-        A common confusion emerges at this point.
+A common confusion emerges at this point.
 
-        Data is often treated as equivalent to knowledge.
+Data is often treated as equivalent to knowledge.
 
-        It is not.
+It is not.
 
-        Data is a measurement.  
-        Information is a relationship between measurements.  
-        A decision is an action taken under constraints.
+- **Data** is a measurement.  
+- **Information** is a relationship between measurements.  
+- **A decision** is an action taken under constraints.
 
-        Telemetry operates across these layers.
+Telemetry operates across these layers.
 
-        When a driver loses time in a corner, the data may show brake pressure, steering angle, throttle application, and speed traces.  
-        Information emerges only when these signals are aligned and compared against a reference lap.
+When a driver loses time in a corner, the data may show brake pressure, steering angle, throttle application, and speed traces.  
+Information emerges only when these signals are aligned and compared against a reference lap.
 
-        A decision follows: adjust braking point, change line, modify setup.
+A decision follows: adjust braking point, change line, modify setup.
 
-        The process is interpretative.  
-        Not mechanical.
+The process is interpretative.  
+Not mechanical.
 
-        Software tools can automate parts of this transformation.  
-        They cannot eliminate the need for judgment.
-      </div>
-    </section>
+Software tools can automate parts of this transformation.  
+They cannot eliminate the need for judgment.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        ## Why “more data” can reduce performance
+## Why “more data” can reduce performance
 
-        In simulation environments especially, access to data is nearly unlimited.
+In simulation environments especially, access to data is nearly unlimited.
 
-        The temptation is predictable: log everything.
+The temptation is predictable: log everything.
 
-        Yet more data increases cognitive load.  
-        It multiplies potential correlations.  
-        It amplifies noise.
+Yet more data increases cognitive load.  
+It multiplies potential correlations.  
+It amplifies noise.
 
-        Without a model of what matters, additional signals create ambiguity.
+Without a model of what matters, additional signals create ambiguity.
 
-        This is not a technical failure.  
-        It is a design issue.
+This is not a technical failure.  
+It is a design issue.
 
-        Telemetry becomes counterproductive when it overwhelms the user.  
-        Performance analysis then shifts from understanding behavior to managing complexity.
+Telemetry becomes counterproductive when it overwhelms the user.  
+Performance analysis then shifts from understanding behavior to managing complexity.
 
-        The problem is not the data itself.  
-        It is the absence of structure.
-      </div>
-    </section>
+The problem is not the data itself.  
+It is the absence of structure.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        ## Real telemetry vs simulation telemetry
+## Real telemetry vs simulation telemetry
 
-        In real motorsport, sensors are constrained by cost, weight, regulation, and reliability.  
-        Data is limited and carefully selected.
+In real motorsport, sensors are constrained by cost, weight, regulation, and reliability.  
+Data is limited and carefully selected.
 
-        In simulation, constraints are different.  
-        Internal physics variables can be exposed in large quantities.  
-        The environment is deterministic.  
-        Repetition is cheap.
+In simulation, constraints are different.
 
-        This creates a paradox.
+Internal physics variables can be exposed in large quantities.  
+The environment is deterministic.  
+Repetition is cheap.
 
-        Simulation offers cleaner and richer datasets, but risks encouraging over-analysis.  
-        Real racing offers noisier data, but forces prioritization.
+This creates a paradox.
 
-        For software design, this difference is relevant.  
-        Tools built for simulation may not translate directly to real-world constraints.
+Simulation offers cleaner and richer datasets, but risks encouraging over-analysis.  
+Real racing offers noisier data, but forces prioritization.
 
-        The context shapes the interface.  
-        And the interface shapes interpretation.
-      </div>
-    </section>
+For software design, this difference is relevant.
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        ## Implications for software design
+Tools built for simulation may not translate directly to real-world constraints.  
+The context shapes the interface.  
+And the interface shapes interpretation.
 
-        If telemetry is understood as a system, then software tools are not neutral components.
+## Implications for software design
 
-        They actively shape interpretation.
+If telemetry is understood as a system, then software tools are not neutral components.
 
-        Every design choice — from data aggregation to visual hierarchy — influences how performance is perceived and explained.  
-        What is highlighted becomes relevant.  
-        What is hidden becomes negligible.
+They actively shape interpretation.
 
-        This shifts the focus from data availability to cognitive mediation.
+Every design choice — from data aggregation to visual hierarchy — influences how performance is perceived and explained.  
+What is highlighted becomes relevant.  
+What is hidden becomes negligible.
 
-        A telemetry tool does not simply answer questions.  
-        It implicitly suggests which questions are worth asking.
+This shifts the focus from data availability to cognitive mediation.
 
-        From this perspective, software design becomes a form of epistemic filtering.  
-        The tool encodes assumptions about causality, relevance, and expertise.  
-        These assumptions are rarely explicit.
+A telemetry tool does not simply answer questions.  
+It implicitly suggests which questions are worth asking.
 
-        In both simulation and real motorsport contexts, this creates a tension.
+From this perspective, software design becomes a form of epistemic filtering.  
+The tool encodes assumptions about causality, relevance, and expertise.  
+These assumptions are rarely explicit.
 
-        On one side, there is the desire for completeness.  
-        On the other, the necessity of usability under time and cognitive constraints.
+In both simulation and real motorsport contexts, this creates a tension:
 
-        Resolving this tension is not primarily a technical problem.  
-        It is a design problem informed by human factors, decision theory, and domain knowledge.
+- the desire for completeness
+- the necessity of usability under time and cognitive constraints
 
-        For this reason, evaluating telemetry software cannot be limited to accuracy or feature count.  
-        It requires asking how effectively the tool supports reasoning under uncertainty.
+Resolving this tension is not primarily a technical problem.  
+It is a design problem informed by human factors, decision theory, and domain knowledge.
 
-        This raises an open question.
+For this reason, evaluating telemetry software cannot be limited to accuracy or feature count.  
+It requires asking how effectively the tool supports reasoning under uncertainty.
 
-        Can telemetry software be designed not only to display performance data, but to actively support better thinking about performance?
+This raises an open question:
 
-        The answer is not obvious.  
-        But it defines a clear direction for further exploration.
-      </div>
-    </section>
+Can telemetry software be designed not only to display performance data, but to actively support better thinking about performance?
 
-    <figure class="panel">
-      <img src="{{ page.cover_image | relative_url }}" alt="Telemetry">
-    </figure>
-    <section class="panel">
-      <div markdown="1">
-        ## References
+The answer is not obvious.  
+But it defines a clear direction for further exploration.
 
-        - Milliken & Milliken — *Race Car Vehicle Dynamics*
-        - Concepts from data science and decision theory
-        - Simulation telemetry tools (MoTeC i2, sim racing platforms)
+## References
 
-        [HOME]({{ '/' | relative_url }})
-      </div>
-    </section>
+- Milliken & Milliken — *Race Car Vehicle Dynamics*
+- Concepts from data science and decision theory
+- Simulation telemetry tools (MoTeC i2, sim racing platforms)
 
-  </article>
-</div>
+[HOME]({{ '/' | relative_url }})
