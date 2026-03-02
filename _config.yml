@@ -13,3 +13,13 @@ permalink: /articles/:title/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+nav:
+  - title: Home
+    url: /
+  - title: Articles
+    url: /#articles
+  - title: API
+    url: /api/
+  - title: Idea
+    url: /idea/

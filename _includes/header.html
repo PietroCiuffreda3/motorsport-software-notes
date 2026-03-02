@@ -1,0 +1,16 @@
+<header class="site-header site-header--dark" role="banner">
+  <div class="site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">{{ site.title }}</span>
+    </a>
+
+    <nav class="topnav" aria-label="Primary">
+      {% if site.nav %}
+        {% for item in site.nav %}
+          <a class="topnav__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
+      {% endif %}
+    </nav>
+  </div>
+</header>

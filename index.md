@@ -3,6 +3,8 @@ layout: home
 title: Motorsport Software Notes
 ---
 
+<div id="articles"></div>
+
 <div class="sticky-split">
   <article>
 

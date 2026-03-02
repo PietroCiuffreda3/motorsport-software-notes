@@ -1,0 +1,14 @@
+<footer class="site-footer site-footer--dark">
+  <div class="site-footer__inner">
+    <div class="site-footer__meta">
+      <span>{{ site.title }}</span>
+      <span class="sep">·</span>
+      <span>© {{ "now" | date: "%Y" }}</span>
+    </div>
+    <div class="site-footer__links">
+      {% if site.github.repository_url %}
+        <a href="{{ site.github.repository_url }}">Repository</a>
+      {% endif %}
+    </div>
+  </div>
+</footer>
