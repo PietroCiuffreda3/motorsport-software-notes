@@ -1,6 +1,5 @@
 title: Motorsport Software Notes
 description: Notes and articles on software engineering and data analysis applied to motorsport and racing simulation.
-#theme: minima
 
 # GitHub Pages project site defaults
 # If you publish at https://<user>.github.io/motorsport-software-notes
@@ -11,9 +10,8 @@ baseurl: "/motorsport-software-notes"
 permalink: /articles/:title/
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
-
+  - jekyll-feed
 nav:
   - title: Home
     url: /

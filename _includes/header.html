@@ -1,16 +1,10 @@
-<header class="ue-header">
-  <div class="ue-header__inner">
-    <a class="ue-brand" href="{{ '/' | relative_url }}">
-      {% if site.logo %}
-        <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
-      {% else %}
-        <span class="ue-brand__text">{{ site.title }}</span>
-      {% endif %}
-    </a>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <nav class="ue-nav">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/articles/' | relative_url }}">Blog</a>
-    </nav>
-  </div>
-</header>
+  {% seo %}
+
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  {% feed_meta %}
+</head>
