@@ -7,9 +7,9 @@ permalink: /api/posts.json
 {
   "title": {{ post.title | jsonify }},
   "date": "{{ post.date | date_to_xmlschema }}",
-  "description": {{ post.description | strip_html | jsonify }},
+  "description": {{ post.subtitle | default: post.excerpt | strip_html | jsonify }},
   "tags": {{ post.tags | jsonify }},
-  "cover_image": {{ post.cover_image | default: "" | jsonify }},
+  "cover_image": {{ post.hero | default: "" | jsonify }},
   "url": {{ post.url | absolute_url | jsonify }}
 }{% unless forloop.last %},{% endunless %}
 {% endfor %}

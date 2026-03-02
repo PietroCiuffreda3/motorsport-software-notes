@@ -2,11 +2,10 @@
 layout: post
 title: "Telemetry: What It Is"
 subtitle: "Understanding telemetry in motorsport software."
-hero: /assets/img/progetto/immagine.jpg
-hero_alt: "Telemetry in motorsport: car on track"
-hero_caption: "Telemetry is a system: measurement → interpretation → decisions."
 nav_title: What is Telemetry
 hero: /assets/img/tel.png
+hero_alt: "Telemetry in motorsport: data and track"
+hero_caption: "Telemetry is a system: measurement → interpretation → decisions."
 ---
 
 ## Summary

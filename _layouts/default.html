@@ -14,140 +14,19 @@
 
   <meta name="theme-color" content="#0e0e0e">
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  {% seo %}
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="component-nav" id="siteHeader">
-  <div class="nav-row" id="navRow">
-
-    <a href="{{ '/' | relative_url }}" class="brand" aria-label="Home">
-      <span class="site-title-text">{{ site.title }}</span>
-    </a>
-
-    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-      <a class="nav-main" href="{{ '/' | relative_url }}">Home</a>
-      <a class="nav-main" href="{{ '/project/' | relative_url }}">Projects</a>
-      <a class="nav-main" href="{{ '/articles/' | relative_url }}">Blog</a>
-
-      {% assign latest_posts = site.posts | slice: 0, 3 %}
-      {% for post in latest_posts %}
-        <a class="nav-post" href="{{ post.url | relative_url }}">
-          {{ post.nav_title | default: post.title }}
-        </a>
-      {% endfor %}
-    </nav>
-
-    <button class="nav-cta" type="button" id="contactToggle"
-            aria-expanded="false" aria-controls="contactMenu">
-      Contact Me
-    </button>
-
-    <button class="nav-burger" type="button" id="burgerToggle"
-            aria-expanded="false" aria-controls="contactMenu"
-            aria-label="Open menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-  </div>
-</header>
-
-<div class="contact-menu" id="contactMenu" aria-hidden="true">
-  <div class="contact-menu__inner">
-    <button class="contact-menu__close" type="button" id="contactClose" aria-label="Close menu">✕</button>
-
-    <div class="contact-menu__content">
-      <h3 class="contact-menu__title">Menu</h3>
-      <nav class="contact-menu__nav">
-        <a class="contact-menu__link" href="{{ '/' | relative_url }}">Home</a>
-        <a class="contact-menu__link" href="{{ '/project/' | relative_url }}">Projects</a>
-        <a class="contact-menu__link" href="{{ '/articles/' | relative_url }}">Blog</a>
-      </nav>
-
-      <div class="contact-menu__divider"></div>
-
-      <h3 class="contact-menu__title">Latest Posts</h3>
-      <nav class="contact-menu__nav">
-        {% assign latest_posts = site.posts | slice: 0, 3 %}
-        {% for post in latest_posts %}
-          <a class="contact-menu__link" href="{{ post.url | relative_url }}">
-            {{ post.nav_title | default: post.title }}
-          </a>
-        {% endfor %}
-      </nav>
-
-      <div class="contact-menu__divider"></div>
-
-      <h3 class="contact-menu__title">Contact</h3>
-      <div class="contact-menu__grid">
-        <a class="contact-menu__link" href="mailto:yourmail@example.com">Email</a>
-        <a class="contact-menu__link" href="https://instagram.com/yourprofile" target="_blank" rel="noreferrer noopener">Instagram</a>
-        <a class="contact-menu__link" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</div>
+  {% include header.html %}
 
   <!-- PAGE CONTENT (unchanged: this is what preserves hero/cards) -->
   <main class="main-content" aria-label="Content">
     {{ content }}
   </main>
 
-  <script>
-(function () {
-  const header = document.getElementById('siteHeader');
-  const navRow = document.getElementById('navRow');
-
-  const contactBtn = document.getElementById('contactToggle');
-  const burgerBtn  = document.getElementById('burgerToggle');
-
-  const menu = document.getElementById('contactMenu');
-  const closeBtn = document.getElementById('contactClose');
-
-  function openMenu(){
-    menu.classList.add('is-open');
-    menu.setAttribute('aria-hidden','false');
-    contactBtn.setAttribute('aria-expanded','true');
-    burgerBtn.setAttribute('aria-expanded','true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu(){
-    menu.classList.remove('is-open');
-    menu.setAttribute('aria-hidden','true');
-    contactBtn.setAttribute('aria-expanded','false');
-    burgerBtn.setAttribute('aria-expanded','false');
-    document.body.style.overflow = '';
-  }
-
-  contactBtn.addEventListener('click', openMenu);
-  burgerBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-  menu.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-
-  // NAV behavior: NORMAL -> TIGHT -> COLLAPSED
-  function updateNav(){
-    header.classList.remove('is-tight','is-collapsed');
-
-    // Normal
-    if (navRow.scrollWidth <= navRow.clientWidth + 1) return;
-
-    // Tight: hide only latest post titles
-    header.classList.add('is-tight');
-    if (navRow.scrollWidth <= navRow.clientWidth + 1) return;
-
-    // Collapsed: hamburger
-    header.classList.add('is-collapsed');
-  }
-
-  window.addEventListener('resize', updateNav);
-  window.addEventListener('load', updateNav);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateNav);
-  updateNav();
-})();
-</script>
+  {% include footer.html %}
 
 </body>
 </html>

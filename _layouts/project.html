@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article class="x-page">
+  <div class="x-wrap">
+    <header class="x-posthead">
+      <h1 class="x-h1" id="{{ page.title | slugify }}">{{ page.title }}</h1>
+      {% if page.subtitle %}
+        <p class="x-posthead__sub">{{ page.subtitle }}</p>
+      {% elsif page.description %}
+        <p class="x-posthead__sub">{{ page.description }}</p>
+      {% endif %}
+      {% if page.status %}
+        <div class="x-posthead__meta">
+          <span class="x-pill x-pill--soft">Project</span>
+          <span class="x-date">{{ page.status }}</span>
+        </div>
+      {% endif %}
+    </header>
+
+    {% if page.repo_url or page.demo_url or page.stack %}
+      <section class="x-note" style="margin-bottom: 18px;">
+        <ul>
+          {% if page.repo_url %}<li><a href="{{ page.repo_url }}" target="_blank" rel="noreferrer noopener">Repository</a></li>{% endif %}
+          {% if page.demo_url and page.demo_url != "" %}<li><a href="{{ page.demo_url }}" target="_blank" rel="noreferrer noopener">Demo</a></li>{% endif %}
+          {% if page.stack %}<li>Stack: {{ page.stack | join: ", " }}</li>{% endif %}
+        </ul>
+      </section>
+    {% endif %}
+
+    <div class="x-prose">
+      {{ content }}
+    </div>
+  </div>
+</article>

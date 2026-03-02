@@ -2,11 +2,10 @@
 layout: post
 title: "Building a Data-Driven Endurance Strategy Model"
 subtitle: "Transforming lap-by-lap data into structured strategic decisions during long-distance races."
-hero: /assets/img/progetto/immagine.jpg
-hero_alt: "Endurance strategy: pitwall decision making"
-hero_caption: "Turning uncertainty into structured choices across stints, traffic, fuel and tyre degradation."
 nav_title: Strategy Model
 hero: /assets/img/excel.png
+hero_alt: "Endurance strategy: data-driven decisions"
+hero_caption: "Turning uncertainty into structured choices across stints, traffic, fuel and tyre degradation."
 ---
 
 ## Summary
