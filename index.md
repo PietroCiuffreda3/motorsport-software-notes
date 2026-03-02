@@ -14,7 +14,7 @@ title: Motorsport Software Notes
   <div class="home-hero__overlay"></div>
 
   <div class="home-hero__content">
-    <div class="home-hero__kicker">Ultimo articolo</div>
+    <div class="home-hero__kicker">Last Article</div>
     <h1 class="home-hero__title">{{ featured.title }}</h1>
 
     {% if featured.subtitle %}
@@ -29,7 +29,7 @@ title: Motorsport Software Notes
 
 <section class="home-grid">
   <div class="home-grid__head">
-    <h2 class="home-grid__title">Altri articoli</h2>
+    <h2 class="home-grid__title">More Articles</h2>
   </div>
 
   <div class="home-cards">
