@@ -16,6 +16,23 @@
       <a href="{{ '/articles/' | relative_url }}">Articles</a>
       <a href="{{ '/idea/' | relative_url }}">Idea</a>
       <a href="{{ '/search/' | relative_url }}">Search</a>
+
+      <div class="nav-dd" id="contactsDd">
+        <button class="nav-dd__btn" type="button" aria-haspopup="true" aria-expanded="false" onclick="toggleContacts()">
+          Contacts
+          <span class="nav-dd__chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="nav-dd__menu" role="menu" aria-label="Contacts">
+          {% assign contact_page = '/contact/' | relative_url %}
+          {% assign li = site.social.linkedin | default: '' %}
+          {% assign ig = site.social.instagram | default: '' %}
+          {% assign em = site.social.email | default: '' %}
+
+          <a role="menuitem" href="{% if li != '' %}{{ li }}{% else %}{{ contact_page }}#linkedin{% endif %}" {% if li != '' %}target="_blank" rel="noreferrer noopener"{% endif %}>LinkedIn</a>
+          <a role="menuitem" href="{% if ig != '' %}{{ ig }}{% else %}{{ contact_page }}#instagram{% endif %}" {% if ig != '' %}target="_blank" rel="noreferrer noopener"{% endif %}>Instagram</a>
+          <a role="menuitem" href="{% if em != '' %}mailto:{{ em }}{% else %}{{ contact_page }}#email{% endif %}">Email</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -30,4 +47,22 @@
     const isOpen = nav.classList.contains('open');
     button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   }
+
+  function toggleContacts(){
+    const dd = document.getElementById('contactsDd');
+    if(!dd) return;
+    dd.classList.toggle('open');
+    const btn = dd.querySelector('.nav-dd__btn');
+    const isOpen = dd.classList.contains('open');
+    if(btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  document.addEventListener('click', (e) => {
+    const dd = document.getElementById('contactsDd');
+    if(!dd) return;
+    if(dd.contains(e.target)) return;
+    dd.classList.remove('open');
+    const btn = dd.querySelector('.nav-dd__btn');
+    if(btn) btn.setAttribute('aria-expanded', 'false');
+  });
 </script>

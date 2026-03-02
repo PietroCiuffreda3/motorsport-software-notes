@@ -51,6 +51,30 @@ title: Motorsport Software Notes
 
 <div class="u-wrapper">
   <h1 class="u-section-title">Latest</h1>
+  <div class="u-feature" aria-label="Featured project">
+    {% assign featured = site.projects | where: 'title', 'Endurance Stint Decision System' | first %}
+    {% if featured %}
+      <div class="u-feature__card">
+        <div class="u-feature__media">
+          {% if featured.hero %}
+            <img src="{{ featured.hero | relative_url }}" alt="{{ featured.title }}" loading="lazy">
+          {% else %}
+            <img src="{{ '/assets/cover/excel.svg' | relative_url }}" alt="{{ featured.title }}" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="u-feature__body">
+          <span class="u-pill">Featured</span>
+          <h2 class="u-feature__title">{{ featured.title }}</h2>
+          <p class="u-feature__sub">{{ featured.subtitle }}</p>
+          <div class="u-feature__actions">
+            <a class="u-btn u-btn--primary" href="{{ featured.url | relative_url }}">Open project</a>
+            <a class="u-btn" href="{{ '/project/' | relative_url }}">All projects</a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
   <div class="u-news-grid">
     {% for post in site.posts limit: 6 %}
       <div class="u-news-card">

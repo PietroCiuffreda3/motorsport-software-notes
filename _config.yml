@@ -5,6 +5,12 @@ tagline: Telemetry • Strategy • Tooling
 
 lang: en
 
+# Social / contact links (used in the header "Contacts" dropdown)
+social:
+  linkedin: ""
+  instagram: ""
+  email: ""
+
 # GitHub Pages project site defaults
 # If you publish at https://<user>.github.io/motorsport-software-notes
 # keep baseurl as shown below.
