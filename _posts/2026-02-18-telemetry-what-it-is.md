@@ -6,6 +6,7 @@ hero: /assets/img/progetto/immagine.jpg
 hero_alt: "Telemetry in motorsport: car on track"
 hero_caption: "Telemetry is a system: measurement → interpretation → decisions."
 nav_title: What is Telemetry
+hero: /assets/img/progetto/immagine.jpg
 ---
 
 ## Summary

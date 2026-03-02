@@ -6,6 +6,7 @@ hero: /assets/img/progetto/immagine.jpg
 hero_alt: "Endurance strategy: pitwall decision making"
 hero_caption: "Turning uncertainty into structured choices across stints, traffic, fuel and tyre degradation."
 nav_title: Strategy Model
+hero: /assets/img/progetto/immagine.jpg
 ---
 
 ## Summary

@@ -573,3 +573,94 @@ pre code{
     display:none;
   }
 }
+/* =========================
+   HOME HERO (UniUD-like)
+   ========================= */
+
+.home-hero{
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  border: 1px solid var(--border-2);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.home-hero__bg{
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.home-hero__bg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.15) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.home-hero__overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.20) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
+}
+
+.home-hero__content{
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 72px 54px 54px;
+}
+
+.home-hero__kicker{
+  color: rgba(255,255,255,0.80);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.home-hero__title{
+  margin: 0 0 14px;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  color: var(--accent);
+  font-weight: 900;
+  text-shadow: 0 8px 20px rgba(0,0,0,0.55);
+}
+
+.home-hero__text{
+  margin: 0 0 22px;
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem;
+  max-width: 60ch;
+  text-shadow: 0 6px 16px rgba(0,0,0,0.55);
+}
+
+.home-hero__buttons{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* variante bottone “pieno” come UniUD */
+.button--solid{
+  background: rgba(255,255,255,0.85);
+  color: #000;
+  border-color: rgba(255,255,255,0.35);
+}
+.button--solid:hover{
+  background: #fff;
+  border-color: #fff;
+}
+
+/* mobile */
+@media (max-width: 900px){
+  .home-hero{
+    min-height: 360px;
+  }
+  .home-hero__content{
+    padding: 44px 22px 28px;
+  }
+}
