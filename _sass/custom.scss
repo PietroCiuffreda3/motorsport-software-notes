@@ -1,28 +1,40 @@
+/* ==========================================================
+   Motorsport Software Notes — UniUD-inspired skin + Xeud-like overlay
+   ==========================================================
+
+   FONT:
+   - Put .woff2 in: assets/fonts/tt-travels-next-trl/
+   - Update filenames below to match your actual .woff2 names.
+*/
+
+/* =========================
+   1) FONT (EDIT FILENAMES)
+   ========================= */
 
 @font-face{
   font-family: "TT Travels Next Trl";
-  src: url("/assets/fonts/tt-travels-next-trl/TTTravelsNextTrl-Regular.woff2") format("woff2");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face{
   font-family: "TT Travels Next Trl";
-  src: url("/assets/fonts/tt-travels-next-trl/TTTravelsNextTrl-Italic.woff2") format("woff2");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face{
   font-family: "TT Travels Next Trl";
-  src: url("/assets/fonts/tt-travels-next-trl/TTTravelsNextTrl-Medium.woff2") format("woff2");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face{
   font-family: "TT Travels Next Trl";
-  src: url("/assets/fonts/tt-travels-next-trl/TTTravelsNextTrl-Bold.woff2") format("woff2");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -34,7 +46,6 @@
 
 :root{
   --bg: #0e0e0e;
-
   --panel: rgba(255,255,255,0.06);
   --panel-2: rgba(255,255,255,0.04);
 
@@ -51,14 +62,6 @@
   --radius: 14px;
 
   --maxw: 1180px;
-  --maxw-text: 72ch;
-
-  --fz-base: 16px;
-  --lh: 1.65;
-
-  --h1: clamp(2.4rem, 4.6vw, 3.8rem);
-  --h2: clamp(1.6rem, 2.4vw, 2.2rem);
-  --h3: 1.25rem;
 }
 
 /* =========================
@@ -76,11 +79,10 @@ html, body{
 
 body{
   font-family: "TT Travels Next Trl", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: var(--fz-base);
-  line-height: var(--lh);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 img{ max-width: 100%; height: auto; }
@@ -110,7 +112,7 @@ hr{
 .general-content-wrapper{
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 64px 22px 90px;
+  padding: 56px 22px 80px;
 }
 
 /* =========================
@@ -121,73 +123,78 @@ hr{
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(8,8,10,0.86);
+  background: rgba(0,0,0,0.88);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border-2);
 }
 
-.nav-row{
+.logo-header{
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 14px 22px;
-  display: flex;
-  align-items: right;
-  gap: 22px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 18px;
 }
 
 .brand{
   display:inline-flex;
   align-items:center;
+  gap: 12px;
   text-decoration:none;
-  flex: 0 0 auto;
 }
 
 .site-title-text{
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 0.95rem;
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,0.92);
 }
 
-/* Links */
+/* nav links */
 .nav-links{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 22px 14px;
   display:flex;
   align-items:center;
-  gap: 22px;
+  gap: 26px;
   flex-wrap: wrap;
-  flex: 1 1 auto;
-  min-width: 0;
 }
 
-.nav-links .nav-main{
+/* NAV links: base bianchi */
+.nav-links a{
   color: rgba(255,255,255,0.92);
   text-decoration:none;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 14px;
 }
-.nav-links .nav-main:hover{
-  color: #ffffff;
+.nav-links a:hover{
+  color: #fff;
   text-decoration: none;
 }
 
-/* latest posts in accent */
+/* ultimi post in azzurro */
 .nav-links .nav-post{
-  color: rgba(24,166,255,0.95);
-  text-decoration:none;
-  text-transform: uppercase;
-  letter-spacing: 0.10em;
+  color: var(--accent);
   font-size: 12px;
+  letter-spacing: 0.10em;
 }
 .nav-links .nav-post:hover{
   color: #7bd0ff;
-  text-decoration: none;
 }
 
-/* CTA (opens overlay) */
+/* latest posts can be slightly smaller */
+.nav-post{
+  font-size: 12px;
+  letter-spacing: 0.10em;
+}
+
+/* CTA button that opens overlay */
 .nav-cta{
-  flex: 0 0 auto;
   padding: 10px 18px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.22);
@@ -203,10 +210,38 @@ hr{
   background: rgba(24,166,255,0.16);
   border-color: rgba(24,166,255,0.55);
 }
+/* header row single-line */
+.nav-row{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
 
-/* Hide latest posts on smaller screens (avoid wrap chaos) */
-@media (max-width: 920px){
-  .nav-links .nav-post{ display: none; }
+/* brand a sinistra */
+.brand{
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  flex: 0 0 auto;
+}
+
+/* links al centro */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap: 26px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* CTA a destra */
+.nav-cta{
+  flex: 0 0 auto;
+  margin-left: auto; /* garantisce allineamento a destra */
 }
 
 /* =========================
@@ -214,44 +249,40 @@ hr{
    ========================= */
 
 .general-content-wrapper h1{
-  font-size: var(--h1);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
   line-height: 1.05;
   color: var(--accent);
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
 }
 
 .general-content-wrapper h2{
-  font-size: var(--h2);
+  font-size: 1.65rem;
   color: var(--accent);
   font-weight: 800;
-  margin: 34px 0 12px;
+  margin: 22px 0 10px;
 }
 
 .general-content-wrapper h3{
-  font-size: var(--h3);
+  font-size: 1.15rem;
   color: rgba(255,255,255,0.92);
   font-weight: 750;
-  margin: 22px 0 8px;
+  margin: 16px 0 6px;
 }
 
 .general-content-wrapper p{
   color: rgba(255,255,255,0.78);
-  max-width: var(--maxw-text);
-  margin: 0 0 16px;
-}
-
-.general-content-wrapper li{
-  max-width: var(--maxw-text);
+  max-width: 80ch;
+  margin: 0 0 14px;
 }
 
 .general-content-wrapper ul,
 .general-content-wrapper ol{
   color: rgba(255,255,255,0.78);
-  max-width: var(--maxw-text);
+  max-width: 80ch;
   padding-left: 18px;
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 }
 
 .general-content-wrapper blockquote{
@@ -261,13 +292,6 @@ hr{
   background: rgba(255,255,255,0.04);
   color: rgba(255,255,255,0.80);
   border-radius: 10px;
-}
-
-.general-content-wrapper a{
-  color: var(--accent);
-}
-.general-content-wrapper a:hover{
-  color: #7bd0ff;
 }
 
 /* =========================
@@ -282,11 +306,7 @@ hr{
     "text image";
   gap: 22px 42px;
   align-items: start;
-  padding: 26px 0 44px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.z-image-subsection-wrapper:last-child{
-  border-bottom: 0;
+  padding: 18px 0 32px;
 }
 
 .z-image-title{ grid-area: title; margin: 0; }
@@ -299,13 +319,12 @@ hr{
   background: rgba(0,0,0,0.22);
   box-shadow: var(--shadow);
   overflow: hidden;
-  border-radius: 14px;
 }
 .z-image-image img{
   display:block;
   width: 100%;
   height: auto;
-  filter: grayscale(1) contrast(1.05);
+  filter: grayscale(1);
   opacity: 0.92;
 }
 
@@ -350,7 +369,7 @@ hr{
 }
 
 /* =========================
-   8) HOME HERO + GRID
+   8) HOME HERO + GRID (if used)
    ========================= */
 
 .home-hero{
@@ -361,7 +380,6 @@ hr{
   box-shadow: var(--shadow);
   overflow: hidden;
   margin-bottom: 34px;
-  border-radius: 14px;
 }
 
 .home-hero__bg{
@@ -451,13 +469,6 @@ hr{
   min-height: 340px;
   display: grid;
   grid-template-rows: 190px 1fr;
-  border-radius: 14px;
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
-}
-
-.home-card:hover{
-  transform: translateY(-4px);
-  border-color: rgba(24,166,255,0.28);
 }
 
 .home-card__media{
@@ -472,11 +483,6 @@ hr{
   filter: grayscale(0.25) contrast(1.05);
   opacity: 0.95;
   transform: scale(1.01);
-  transition: transform .25s ease, opacity .25s ease;
-}
-.home-card:hover .home-card__media img{
-  transform: scale(1.04);
-  opacity: 0.98;
 }
 
 .home-card__placeholder{
@@ -657,14 +663,6 @@ pre code{
 .contact-menu__content{
   width: min(900px, 92vw);
   text-align: center;
-
-  transform: translateY(8px) scale(0.98);
-  opacity: 0;
-  transition: transform .25s ease, opacity .25s ease;
-}
-.contact-menu.is-open .contact-menu__content{
-  transform: translateY(0) scale(1);
-  opacity: 1;
 }
 
 .contact-menu__title{
