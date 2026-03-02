@@ -350,3 +350,35 @@ pre code {
   .site-header__inner { align-items: flex-start; }
   .brand__text { font-size: 0.9rem; }
 }
+/* ===== FORCE FULL DARK LAYOUT ===== */
+
+html, body {
+  background: #0b0b0b !important;
+  color: rgba(255,255,255,.88) !important;
+}
+
+/* elimina wrapper minima */
+.wrapper,
+.page-content,
+.site-content,
+.container {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* forza il nostro container */
+.ue-shell {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 60px 40px 80px !important;
+}
+
+/* rimuove eventuale background bianco dai post */
+.post-content,
+.post,
+article {
+  background: transparent !important;
+}
