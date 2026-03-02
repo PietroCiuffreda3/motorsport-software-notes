@@ -23,7 +23,6 @@ title: Motorsport Software Notes
 
     <div class="home-hero__buttons">
       <a class="button button--solid" href="{{ featured.url | relative_url }}">Leggi</a>
-      <a class="button" href="{{ '/articles/' | relative_url }}">Tutti gli articoli</a>
     </div>
   </div>
 </section>
