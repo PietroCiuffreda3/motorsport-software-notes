@@ -1,9 +1,8 @@
-<!-- _layouts/default.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>
     {% if page.title %}
@@ -14,175 +13,130 @@
   </title>
 
   <meta name="theme-color" content="#0e0e0e">
+
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-  <header class="component-nav" id="siteHeader">
-    <div class="nav-row" id="navRow">
-
-      <a href="{{ '/' | relative_url }}" class="brand" aria-label="Home">
+  <header class="component-nav">
+    <div class="logo-header">
+      <a href="{{ '/' | relative_url }}" class="brand">
+        <!-- Se hai un logo svg, mettilo qui -->
+        <!-- <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="{{ site.title }}"> -->
         <span class="site-title-text">{{ site.title }}</span>
       </a>
 
-      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-        <a class="nav-main" href="{{ '/' | relative_url }}">Home</a>
-        <a class="nav-main" href="{{ '/project/' | relative_url }}">Projects</a>
-        <a class="nav-main" href="{{ '/articles/' | relative_url }}">Blog</a>
-
-        {% assign latest_posts = site.posts | slice: 0, 3 %}
-        {% for post in latest_posts %}
-          <a class="nav-post" href="{{ post.url | relative_url }}">
-            {{ post.nav_title | default: post.title }}
-          </a>
-        {% endfor %}
-      </nav>
-
-      <!-- CONTACT BUTTON (desktop first) -->
-      <button class="nav-cta" type="button"
+      <!-- CTA che apre overlay contatti -->
+      <button class="nav-cta nav-cta--menu" type="button"
               id="contactToggle"
               aria-expanded="false"
-              aria-controls="siteMenu">
-        Contact Me
+              aria-controls="contactMenu">
+        Contact ME
       </button>
-
-      <!-- HAMBURGER (shown only when nav overflows) -->
-      <button class="nav-burger" type="button"
-              id="menuToggle"
-              aria-expanded="false"
-              aria-controls="siteMenu"
-              aria-label="Open menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
     </div>
+
+    <nav class="nav-links">
+      <!-- Link statici -->
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/project/' | relative_url }}">Progetto</a>
+      <a href="{{ '/articles/' | relative_url }}">Blog</a>
+
+      <!-- Ultimi 3 post -->
+      {% assign latest_posts = site.posts | slice: 0, 3 %}
+      {% for post in latest_posts %}
+        <a class="nav-post" href="{{ post.url | relative_url }}">
+          {{ post.nav_title | default: post.title }}
+        </a>
+      {% endfor %}
+    </nav>
   </header>
 
-  <!-- PAGE CONTENT (no wrapper here to avoid breaking your existing cards/layout) -->
-  <main class="main-content" aria-label="Content">
-    {{ content }}
-  </main>
+  <!-- OVERLAY CONTATTI -->
+  <div class="contact-menu" id="contactMenu" aria-hidden="true">
+    <div class="contact-menu__inner">
+      <button class="contact-menu__close" type="button" id="contactClose" aria-label="Chiudi">
+        ✕
+      </button>
 
-  <!-- OVERLAY MENU -->
-  <div class="site-menu" id="siteMenu" aria-hidden="true">
-    <div class="site-menu__inner">
-      <button class="site-menu__close" type="button" id="menuClose" aria-label="Close menu">✕</button>
+      <div class="contact-menu__content">
+        <div class="contact-menu__title">Contact ME</div>
 
-      <div class="site-menu__content">
-        <h3 class="site-menu__title">Menu</h3>
-
-        <nav class="site-menu__nav" aria-label="Menu links">
-          <a class="site-menu__link" href="{{ '/' | relative_url }}">Home</a>
-          <a class="site-menu__link" href="{{ '/project/' | relative_url }}">Projects</a>
-          <a class="site-menu__link" href="{{ '/articles/' | relative_url }}">Blog</a>
-        </nav>
-
-        <div class="site-menu__divider"></div>
-
-        <h3 class="site-menu__title">Latest Posts</h3>
-        <nav class="site-menu__nav" aria-label="Latest posts">
-          {% assign latest_posts = site.posts | slice: 0, 3 %}
-          {% for post in latest_posts %}
-            <a class="site-menu__link" href="{{ post.url | relative_url }}">
-              {{ post.nav_title | default: post.title }}
-            </a>
-          {% endfor %}
-        </nav>
-
-        <div class="site-menu__divider"></div>
-
-        <h3 class="site-menu__title">Contact</h3>
-
-        <!-- EDIT THESE LINKS -->
         <div class="contact-menu__grid">
-          <a class="contact-tile" href="mailto:yourmail@example.com">
-            <span class="contact-tile__icon" aria-hidden="true">✉</span>
-            <span class="contact-tile__label">Email</span>
+          <!-- EDITA I LINK -->
+          <a class="contact-tile" href="https://www.linkedin.com/in/pietro-ciuffreda-026145264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer noopener">
+            <span class="contact-tile__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 23.5h4V7.98h-4V23.5ZM8.5 7.98h3.83v2.12h.05c.53-1 1.83-2.12 3.77-2.12 4.03 0 4.78 2.65 4.78 6.1v9.42h-4v-8.36c0-2-.04-4.57-2.79-4.57-2.79 0-3.22 2.18-3.22 4.43v8.5h-4V7.98Z"/></svg>
+            </span>
+            <span class="contact-tile__label">LinkedIn</span>
           </a>
 
-          <a class="contact-tile" href="https://instagram.com/yourprofile" target="_blank" rel="noreferrer noopener">
-            <span class="contact-tile__icon" aria-hidden="true">⌁</span>
+          <a class="contact-tile" href="https://www.instagram.com/_ciuffreduzz_?igsh=MTU5aDJ4YXNiamozMA==" target="_blank" rel="noreferrer noopener">
+            <span class="contact-tile__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 12 9a3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1ZM24 12c0-3.3 0-3.7-.1-5-.1-1.3-.4-2.4-1.3-3.3S20.6 2.5 19.3 2.4C18 2.3 17.6 2.3 14.3 2.3H9.7c-3.3 0-3.7 0-5 .1C3.4 2.5 2.3 2.8 1.4 3.7S.2 5.7.1 7C0 8.3 0 8.7 0 12s0 3.7.1 5c.1 1.3.4 2.4 1.3 3.3s2 1.2 3.3 1.3c1.3.1 1.7.1 5 .1h4.6c3.3 0 3.7 0 5-.1 1.3-.1 2.4-.4 3.3-1.3s1.2-2 1.3-3.3c.1-1.3.1-1.7.1-5Zm-2 0c0 3.2 0 3.6-.1 4.9-.1 1-.3 1.6-.7 2-.4.4-1 .6-2 .7-1.3.1-1.7.1-4.9.1H9.7c-3.2 0-3.6 0-4.9-.1-1-.1-1.6-.3-2-.7-.4-.4-.6-1-.7-2C2 15.6 2 15.2 2 12s0-3.6.1-4.9c.1-1 .3-1.6.7-2 .4-.4 1-.6 2-.7 1.3-.1 1.7-.1 4.9-.1h4.6c3.2 0 3.6 0 4.9.1 1 .1 1.6.3 2 .7.4.4.6 1 .7 2 .1 1.3.1 1.7.1 4.9Z"/></svg>
+            </span>
             <span class="contact-tile__label">Instagram</span>
           </a>
 
-          <a class="contact-tile" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer noopener">
-            <span class="contact-tile__icon" aria-hidden="true">in</span>
-            <span class="contact-tile__label">LinkedIn</span>
+          <a class="contact-tile" href="mailto:ciuffreda.pietro@gmail.com">
+            <span class="contact-tile__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+            </span>
+            <span class="contact-tile__label">Email</span>
           </a>
         </div>
-
       </div>
     </div>
   </div>
 
+  <!-- CONTENT -->
+  <main class="main-content">
+    <div class="general-content-wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <!-- CONTACT OVERLAY JS -->
   <script>
-    (function () {
-      const header = document.getElementById('siteHeader');
-      const navRow = document.getElementById('navRow');
-      const navLinks = document.getElementById('navLinks');
+    (function(){
+      const toggle = document.getElementById('contactToggle');
+      const menu = document.getElementById('contactMenu');
+      const closeBtn = document.getElementById('contactClose');
+      if(!toggle || !menu || !closeBtn) return;
 
-      const contactBtn = document.getElementById('contactToggle');
-      const burgerBtn = document.getElementById('menuToggle');
+      let active = false;
 
-      const menu = document.getElementById('siteMenu');
-      const closeBtn = document.getElementById('menuClose');
-
-      function openMenu() {
+      function openMenu(){
+        active = true;
+        document.body.style.overflow = "hidden";
         menu.classList.add('is-open');
-        menu.setAttribute('aria-hidden', 'false');
-        contactBtn.setAttribute('aria-expanded', 'true');
-        burgerBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        menu.setAttribute('aria-hidden','false');
+        toggle.setAttribute('aria-expanded','true');
       }
 
-      function closeMenu() {
+      function closeMenu(){
+        active = false;
+        document.body.style.overflow = "";
         menu.classList.remove('is-open');
-        menu.setAttribute('aria-hidden', 'true');
-        contactBtn.setAttribute('aria-expanded', 'false');
-        burgerBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        menu.setAttribute('aria-hidden','true');
+        toggle.setAttribute('aria-expanded','false');
       }
 
-      contactBtn.addEventListener('click', openMenu);
-      burgerBtn.addEventListener('click', openMenu);
+      toggle.addEventListener('click', function(){
+        if(active) closeMenu();
+        else openMenu();
+      });
+
       closeBtn.addEventListener('click', closeMenu);
 
-      menu.addEventListener('click', (e) => {
-        if (e.target === menu) closeMenu();
+      menu.addEventListener('click', function(e){
+        if(e.target === menu) closeMenu();
       });
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && active) closeMenu();
       });
-
-      // Collapse ONLY when there isn't enough space (real overflow)
-      function updateNavCollapse() {
-        // Force both visible to measure accurately
-        header.classList.remove('is-collapsed');
-
-        // If navRow overflows, collapse (hide contact button + links, show burger)
-        const isOverflowing = navRow.scrollWidth > navRow.clientWidth + 1;
-
-        if (isOverflowing) {
-          header.classList.add('is-collapsed');
-        } else {
-          header.classList.remove('is-collapsed');
-        }
-      }
-
-      window.addEventListener('resize', updateNavCollapse);
-      window.addEventListener('load', updateNavCollapse);
-
-      // Also run after fonts load (text width changes)
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(updateNavCollapse);
-      }
-
-      // Run once immediately
-      updateNavCollapse();
     })();
   </script>
 
