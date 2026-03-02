@@ -22,7 +22,7 @@ title: Motorsport Software Notes
     {% endif %}
 
     <div class="home-hero__buttons">
-      <a class="button button--solid" href="{{ featured.url | relative_url }}">Leggi</a>
+      <a class="button button--solid" href="{{ featured.url | relative_url }}">READ</a>
     </div>
   </div>
 </section>
@@ -56,7 +56,7 @@ title: Motorsport Software Notes
             {% if post.date %}
               <span class="home-card__date">{{ post.date | date: "%d/%m/%Y" }}</span>
             {% endif %}
-            <a class="home-card__read" href="{{ post.url | relative_url }}">Leggi</a>
+            <a class="home-card__read" href="{{ post.url | relative_url }}">READ</a>
           </div>
         </div>
       </article>
