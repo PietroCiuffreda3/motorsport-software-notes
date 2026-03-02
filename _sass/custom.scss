@@ -448,3 +448,51 @@ pre code{
   .component-nav nav{ gap: 14px; }
   .site-title-text{ font-size: 0.9rem; }
 }
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.nav-social{
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+}
+
+.icon-link svg{
+  width: 18px;
+  height: 18px;
+  fill: rgba(255,255,255,0.85);
+}
+
+.icon-link:hover{
+  border-color: rgba(24,166,255,0.55);
+  background: rgba(24,166,255,0.16);
+}
+.icon-link:hover svg{
+  fill: #fff;
+}
+
+/* mobile: icone sotto */
+@media (max-width: 900px){
+  .nav-social{
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}
