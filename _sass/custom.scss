@@ -6,7 +6,42 @@
    - Put .woff2 in: assets/fonts/tt-travels-next-trl/
    - Update filenames below to match your actual .woff2 names.
 */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
 
+body{
+  position: relative;
+}
+*{
+  max-width: 100%;
+}
+
+img, svg{
+  max-width: 100%;
+  height: auto;
+}
+.main-content,
+.general-content-wrapper,
+.component-nav,
+.nav-row,
+.nav-links{
+  min-width: 0;
+}
+@media (max-width: 820px){
+  .z-image-subsection-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+pre{
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+pre code{
+  white-space: pre;
+}
 /* =========================
    1) FONT (EDIT FILENAMES)
    ========================= */
@@ -20,9 +55,9 @@
 }
 @font-face{
   font-family: "TT Travels Next Trl";
-  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Italic.woff2") format("woff2");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Medium-Italic.woff2") format("woff2");
   font-weight: 400;
-  font-style: italic;
+  font-style: italic;-
   font-display: swap;
 }
 @font-face{
