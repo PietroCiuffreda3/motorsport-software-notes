@@ -5,17 +5,17 @@
         <span class="nav-logo__text">{{ site.title }}</span>
       </a>
 
-      <button class="hamburger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="primaryNav" onclick="toggleMenu()">
+      <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav" onclick="toggleMenu()">
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
     </div>
 
-    <nav id="primaryNav" class="primary-nav" aria-label="Navigazione">
-      <a href="{{ '/project/' | relative_url }}">Progetti</a>
-      <a href="{{ '/articles/' | relative_url }}">Articoli</a>
+    <nav id="primaryNav" class="primary-nav" aria-label="Primary navigation">
+      <a href="{{ '/project/' | relative_url }}">Projects</a>
+      <a href="{{ '/articles/' | relative_url }}">Articles</a>
       <a href="{{ '/idea/' | relative_url }}">Idea</a>
-      <a href="{{ '/search/' | relative_url }}">Ricerca</a>
+      <a href="{{ '/search/' | relative_url }}">Search</a>
     </nav>
   </div>
 </header>
