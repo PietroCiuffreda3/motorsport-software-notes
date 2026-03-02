@@ -1,135 +1,33 @@
-<header class="x-header" id="xHeader">
-  <div class="x-header__bar">
-    <a class="x-brand" href="{{ '/' | relative_url }}" aria-label="Home">
-      <span class="x-brand__title">{{ site.title }}</span>
-      {% if site.tagline %}
-        <span class="x-brand__tag">{{ site.tagline }}</span>
-      {% endif %}
-    </a>
+<header>
+  <div class="component-nav" id="siteNav">
+    <div class="logo-header">
+      <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home">
+        <span class="nav-logo__text">{{ site.title }}</span>
+      </a>
 
-    <div class="x-header__actions">
-      <button class="x-iconbtn" type="button" id="xSearchOpen" aria-label="Open search" aria-expanded="false" aria-controls="xSearch">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 104.472 10.03l4.249 4.249 1.414-1.414-4.249-4.249A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z"/></svg>
-      </button>
-      <button class="x-iconbtn" type="button" id="xMenuOpen" aria-label="Open menu" aria-expanded="false" aria-controls="xMenu">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>
+      <button class="hamburger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="primaryNav" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
-  </div>
 
-  <div class="x-search" id="xSearch" aria-hidden="true">
-    <form class="x-search__form" action="{{ '/search/' | relative_url }}" method="get" role="search">
-      <input class="x-search__input" type="search" name="q" placeholder="Cerca" autocomplete="off" />
-      <button class="x-iconbtn" type="button" id="xSearchClose" aria-label="Close search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/></svg>
-      </button>
-    </form>
-  </div>
-
-  <div class="x-menu" id="xMenu" aria-hidden="true">
-    <div class="x-menu__panel" role="dialog" aria-modal="true" aria-label="Menu">
-      <div class="x-menu__top">
-        <div class="x-menu__title">Menu</div>
-        <button class="x-iconbtn" type="button" id="xMenuClose" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/></svg>
-        </button>
-      </div>
-
-      <nav class="x-menu__grid" aria-label="Site">
-        <a class="x-menu__item" href="{{ '/' | relative_url }}">
-          <span class="x-menu__dot" aria-hidden="true"></span>
-          <span class="x-menu__label">Home</span>
-        </a>
-        <a class="x-menu__item" href="{{ '/articles/' | relative_url }}">
-          <span class="x-menu__dot" aria-hidden="true"></span>
-          <span class="x-menu__label">Articles</span>
-        </a>
-        <a class="x-menu__item" href="{{ '/project/' | relative_url }}">
-          <span class="x-menu__dot" aria-hidden="true"></span>
-          <span class="x-menu__label">Projects</span>
-        </a>
-        <a class="x-menu__item" href="{{ '/idea/' | relative_url }}">
-          <span class="x-menu__dot" aria-hidden="true"></span>
-          <span class="x-menu__label">Idea</span>
-        </a>
-      </nav>
-
-      <div class="x-menu__sep"></div>
-
-      <div class="x-menu__subhead">Latest</div>
-      <nav class="x-menu__list" aria-label="Latest posts">
-        {% assign latest_posts = site.posts | slice: 0, 5 %}
-        {% for post in latest_posts %}
-          <a class="x-menu__link" href="{{ post.url | relative_url }}">
-            <span class="x-menu__linktitle">{{ post.nav_title | default: post.title }}</span>
-            {% if post.date %}
-              <span class="x-menu__date">{{ post.date | date: "%d %b %Y" }}</span>
-            {% endif %}
-          </a>
-        {% endfor %}
-      </nav>
-
-      <div class="x-menu__sep"></div>
-
-      <div class="x-menu__subhead">Contacts</div>
-      <div class="x-menu__contacts">
-        {% if site.email %}
-          <a class="x-menu__chip" href="mailto:{{ site.email }}">Email</a>
-        {% endif %}
-        {% if site.instagram_url %}
-          <a class="x-menu__chip" href="{{ site.instagram_url }}" target="_blank" rel="noreferrer noopener">Instagram</a>
-        {% endif %}
-        {% if site.linkedin_url %}
-          <a class="x-menu__chip" href="{{ site.linkedin_url }}" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-        {% endif %}
-        <a class="x-menu__chip" href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      </div>
-    </div>
+    <nav id="primaryNav" class="primary-nav" aria-label="Navigazione">
+      <a href="{{ '/project/' | relative_url }}">Progetti</a>
+      <a href="{{ '/articles/' | relative_url }}">Articoli</a>
+      <a href="{{ '/idea/' | relative_url }}">Idea</a>
+      <a href="{{ '/search/' | relative_url }}">Ricerca</a>
+    </nav>
   </div>
 </header>
 
 <script>
-(function(){
-  const searchOpen = document.getElementById('xSearchOpen');
-  const searchClose = document.getElementById('xSearchClose');
-  const search = document.getElementById('xSearch');
-
-  const menuOpen = document.getElementById('xMenuOpen');
-  const menuClose = document.getElementById('xMenuClose');
-  const menu = document.getElementById('xMenu');
-
-  function openSearch(){
-    search.style.display = 'block';
-    search.setAttribute('aria-hidden','false');
-    searchOpen.setAttribute('aria-expanded','true');
-    const input = search.querySelector('input');
-    if (input) input.focus();
+  function toggleMenu(){
+    const nav = document.getElementById('siteNav');
+    const button = nav ? nav.querySelector('.hamburger') : null;
+    const links = document.getElementById('primaryNav');
+    if(!nav || !button || !links) return;
+    nav.classList.toggle('open');
+    const isOpen = nav.classList.contains('open');
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   }
-  function closeSearch(){
-    search.style.display = 'none';
-    search.setAttribute('aria-hidden','true');
-    searchOpen.setAttribute('aria-expanded','false');
-  }
-
-  function openMenu(){
-    menu.classList.add('is-open');
-    menu.setAttribute('aria-hidden','false');
-    menuOpen.setAttribute('aria-expanded','true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu(){
-    menu.classList.remove('is-open');
-    menu.setAttribute('aria-hidden','true');
-    menuOpen.setAttribute('aria-expanded','false');
-    document.body.style.overflow = '';
-  }
-
-  if (searchOpen) searchOpen.addEventListener('click', openSearch);
-  if (searchClose) searchClose.addEventListener('click', closeSearch);
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ closeSearch(); closeMenu(); }});
-
-  if (menuOpen) menuOpen.addEventListener('click', openMenu);
-  if (menuClose) menuClose.addEventListener('click', closeMenu);
-  if (menu) menu.addEventListener('click', (e)=>{ if(e.target===menu) closeMenu(); });
-})();
 </script>
