@@ -1,10 +1,29 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<header class="component-nav">
+  <div class="nav-row">
 
-  {% seo %}
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <span class="site-title-text">{{ site.title }}</span>
+    </a>
 
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  {% feed_meta %}
-</head>
+    <nav class="nav-links">
+      <a class="nav-main" href="{{ '/' | relative_url }}">Home</a>
+      <a class="nav-main" href="{{ '/project/' | relative_url }}">Progetto</a>
+      <a class="nav-main" href="{{ '/articles/' | relative_url }}">Blog</a>
+
+      {% assign latest_posts = site.posts | slice: 0, 3 %}
+      {% for post in latest_posts %}
+        <a class="nav-post" href="{{ post.url | relative_url }}">
+          {{ post.nav_title | default: post.title }}
+        </a>
+      {% endfor %}
+    </nav>
+
+    <button class="nav-cta nav-cta--menu" type="button"
+            id="contactToggle"
+            aria-expanded="false"
+            aria-controls="contactMenu">
+      Contattaci
+    </button>
+
+  </div>
+</header>

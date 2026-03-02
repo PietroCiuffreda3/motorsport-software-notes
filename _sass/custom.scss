@@ -164,17 +164,27 @@ hr{
   flex-wrap: wrap;
 }
 
-/* all navbar links in accent (as requested) */
+/* NAV links: base bianchi */
 .nav-links a{
-  color: var(--accent);
+  color: rgba(255,255,255,0.92);
   text-decoration:none;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 14px;
 }
 .nav-links a:hover{
-  color: #7bd0ff;
+  color: #fff;
   text-decoration: none;
+}
+
+/* ultimi post in azzurro */
+.nav-links .nav-post{
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.10em;
+}
+.nav-links .nav-post:hover{
+  color: #7bd0ff;
 }
 
 /* latest posts can be slightly smaller */
@@ -199,6 +209,39 @@ hr{
 .nav-cta:hover{
   background: rgba(24,166,255,0.16);
   border-color: rgba(24,166,255,0.55);
+}
+/* header row single-line */
+.nav-row{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* brand a sinistra */
+.brand{
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  flex: 0 0 auto;
+}
+
+/* links al centro */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap: 26px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* CTA a destra */
+.nav-cta{
+  flex: 0 0 auto;
+  margin-left: auto; /* garantisce allineamento a destra */
 }
 
 /* =========================
