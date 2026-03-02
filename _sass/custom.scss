@@ -435,6 +435,13 @@ pre code{
   gap: 16px;
 }
 
+.u-home-ctas{
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .u-news-card{
   border: 1px solid var(--border-2);
   background: rgba(255,255,255,0.04);

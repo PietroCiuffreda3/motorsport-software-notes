@@ -27,29 +27,6 @@ title: Motorsport Software Notes
 </div>
 
 <div class="u-wrapper">
-  <h1 class="u-section-title" id="content">Content</h1>
-  <p class="u-section-sub">Main areas of the site.</p>
-
-  <div class="u-grid">
-    <a class="u-card" href="{{ '/articles/' | relative_url }}">
-      <h2>Articles</h2>
-      <p>Notes, deep dives, and walkthroughs.</p>
-      <span class="u-card__meta">{{ site.posts.size }} published</span>
-    </a>
-    <a class="u-card" href="{{ '/project/' | relative_url }}">
-      <h2>Projects</h2>
-      <p>Tooling, templates, and practical resources.</p>
-      <span class="u-card__meta">{% if site.projects %}{{ site.projects.size }} items{% else %}—{% endif %}</span>
-    </a>
-    <a class="u-card" href="{{ '/search/' | relative_url }}">
-      <h2>Search</h2>
-      <p>Find a topic quickly.</p>
-      <span class="u-card__meta">Live query</span>
-    </a>
-  </div>
-</div>
-
-<div class="u-wrapper">
   <h1 class="u-section-title">Latest</h1>
   <div class="u-feature" aria-label="Featured project">
     {% assign featured = site.projects | where: 'title', 'Endurance Stint Decision System' | first %}
@@ -94,5 +71,11 @@ title: Motorsport Software Notes
         </div>
       </div>
     {% endfor %}
+  </div>
+
+  <div class="u-home-ctas" aria-label="Browse all content">
+    <a class="u-btn u-btn--primary" href="{{ '/project/' | relative_url }}">All projects</a>
+    <a class="u-btn" href="{{ '/articles/' | relative_url }}">All articles</a>
+    <a class="u-btn" href="{{ '/search/' | relative_url }}">Search</a>
   </div>
 </div>
