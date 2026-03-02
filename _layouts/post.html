@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<article class="ue-article">
+  <header class="ue-article__header">
+    <h1 class="ue-h1">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+      <p class="ue-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+
+    <div class="ue-meta">
+      {% if page.date %}<span>{{ page.date | date: "%d/%m/%Y" }}</span>{% endif %}
+      {% if page.author %}<span>•</span><span>{{ page.author }}</span>{% endif %}
+    </div>
+  </header>
+
+  <section class="ue-article__grid">
+    <div class="ue-article__content">
+      {{ content }}
+    </div>
+
+    <aside class="ue-article__media">
+      {% if page.hero %}
+        <figure class="ue-hero">
+          <img src="{{ page.hero | relative_url }}" alt="{{ page.hero_alt | default: page.title }}">
+          {% if page.hero_caption %}
+            <figcaption class="ue-hero__cap">{{ page.hero_caption }}</figcaption>
+          {% endif %}
+        </figure>
+      {% endif %}
+    </aside>
+  </section>
+</article>

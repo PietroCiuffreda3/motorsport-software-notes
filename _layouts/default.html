@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} • {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="ue-header">
+    <div class="ue-header__inner">
+
+      <a class="ue-brand" href="{{ '/' | relative_url }}">
+        {{ site.title }}
+      </a>
+
+      <nav class="ue-nav">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/articles/' | relative_url }}">Blog</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- CONTENUTO -->
+  <main class="ue-shell">
+    {{ content }}
+  </main>
+
+</body>
+</html>

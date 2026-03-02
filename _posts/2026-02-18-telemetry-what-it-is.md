@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "Telemetry: What It Is"
-date: 2026-02-18
-description: "Understanding telemetry in motorsport software."
-tags: [motorsport, telemetry, software]
-cover_image: /assets/cover/telemetry.svg
-type: blog
+hero: /assets/img/progetto/immagine.jpg
+hero_alt: "descrizione"
+hero_caption: "Understanding telemetry in motorsport software."
 ---
 
 <div class="sticky-split">

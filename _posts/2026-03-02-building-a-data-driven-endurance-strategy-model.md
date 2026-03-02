@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "Building a Data-Driven Endurance Strategy Model"
-date: 2026-03-02
-description: "Transforming lap-by-lap data into structured strategic decisions during long-distance races."
-tags: [motorsport, telemetry, software]
-cover_image: /assets/cover/excel.svg
-type: blog
+hero: /assets/img/progetto/immagine.jpg
+hero_alt: "descrizione"
+hero_caption: "Transforming lap-by-lap data into structured strategic decisions during long-distance races."
 ---
 
 <div class="sticky-split">

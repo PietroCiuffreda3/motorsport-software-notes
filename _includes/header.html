@@ -1,16 +1,16 @@
-<header class="site-header site-header--dark" role="banner">
-  <div class="site-header__inner">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
-      <span class="brand__mark" aria-hidden="true"></span>
-      <span class="brand__text">{{ site.title }}</span>
+<header class="ue-header">
+  <div class="ue-header__inner">
+    <a class="ue-brand" href="{{ '/' | relative_url }}">
+      {% if site.logo %}
+        <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
+      {% else %}
+        <span class="ue-brand__text">{{ site.title }}</span>
+      {% endif %}
     </a>
 
-    <nav class="topnav" aria-label="Primary">
-      {% if site.nav %}
-        {% for item in site.nav %}
-          <a class="topnav__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% endfor %}
-      {% endif %}
+    <nav class="ue-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/articles/' | relative_url }}">Blog</a>
     </nav>
   </div>
 </header>
