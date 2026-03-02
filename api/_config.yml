@@ -1,0 +1,42 @@
+title: Motorsport Software Notes
+description: Notes and articles on software engineering and data analysis applied to motorsport and racing simulation.
+
+lang: en
+
+# GitHub Pages project site defaults
+# If you publish at https://<user>.github.io/motorsport-software-notes
+# keep baseurl as shown below.
+url: "https://pietrociuffreda3.github.io"
+baseurl: "/motorsport-software-notes"
+
+permalink: /articles/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+collections:
+  projects:
+    output: true
+    permalink: /project/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+nav:
+  - title: Home
+    url: /
+  - title: Articles
+    url: /#articles
+  - title: API
+    url: /api/
+  - title: Idea
+    url: /idea/

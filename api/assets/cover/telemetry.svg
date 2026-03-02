@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f1a"/>
+      <stop offset="1" stop-color="#1f3b5c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9ad0ff" stop-opacity="0.0"/>
+      <stop offset="0.15" stop-color="#9ad0ff" stop-opacity="0.9"/>
+      <stop offset="0.85" stop-color="#9ad0ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#9ad0ff" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <g opacity="0.85" fill="none" stroke="url(#line)" stroke-width="3">
+    <path d="M0,560 C180,430 320,690 520,560 C720,430 860,610 1040,520 C1220,430 1360,520 1600,440"/>
+    <path d="M0,640 C220,520 360,720 560,610 C760,500 900,720 1080,610 C1260,500 1400,620 1600,540" opacity="0.6"/>
+    <path d="M0,480 C200,360 320,560 520,460 C720,360 860,520 1040,440 C1220,360 1360,450 1600,380" opacity="0.35"/>
+  </g>
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" fill="#ffffff">
+    <text x="96" y="140" font-size="54" font-weight="700">Telemetry</text>
+    <text x="96" y="190" font-size="22" opacity="0.85">Measurement → interpretation → decisions</text>
+  </g>
+  <g opacity="0.18" fill="#ffffff">
+    <circle cx="1280" cy="210" r="120"/>
+    <circle cx="1420" cy="320" r="70"/>
+    <circle cx="1200" cy="340" r="40"/>
+  </g>
+</svg>
