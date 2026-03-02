@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /api/projects.json
+---
+[
+{% for p in site.projects %}
+{
+  "title": {{ p.title | jsonify }},
+  "date": "{{ p.date | date_to_xmlschema }}",
+  "description": {{ p.description | strip_html | jsonify }},
+  "status": {{ p.status | jsonify }},
+  "tags": {{ p.tags | jsonify }},
+  "repo_url": {{ p.repo_url | jsonify }},
+  "demo_url": {{ p.demo_url | jsonify }},
+  "stack": {{ p.stack | jsonify }},
+  "cover_image": {{ p.cover_image | default: "" | jsonify }},
+  "url": {{ p.url | absolute_url | jsonify }}
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

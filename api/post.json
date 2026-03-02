@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: /api/posts.json
+---
+[
+{% for post in site.posts %}
+{
+  "title": {{ post.title | jsonify }},
+  "date": "{{ post.date | date_to_xmlschema }}",
+  "description": {{ post.description | strip_html | jsonify }},
+  "tags": {{ post.tags | jsonify }},
+  "cover_image": {{ post.cover_image | default: "" | jsonify }},
+  "url": {{ post.url | absolute_url | jsonify }}
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

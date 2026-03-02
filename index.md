@@ -3,13 +3,30 @@ layout: page
 title: Motorsport Software Notes
 ---
 
-A public notebook on software engineering and data analysis applied to motorsport and racing simulation.
+<div class="sticky-split">
+  <article>
 
-## Articles
+    <figure class="panel">
+      <img src="/assets/cover/excel.jpg" alt="">
+    </figure>
+    <section class="panel">
+      <div>
+        <h2>Building a Data-Driven Endurance Strategy Model</h2>
+        <p>Software engineering and race strategy modelling in Excel.</p>
+        <a href="{{ '/articles/excel.html' | relative_url }}">READ</a>
+      </div>
+    </section>
 
-- **2026-03-02** — [Building a Data-Driven Endurance Strategy Model]({{ '/articles/excel.html' | relative_url }})
-- **2026-02-18** — [Telemetry: what it really is]({{ '/articles/telemetry-what-it-is.html' | relative_url }})
+    <figure class="panel">
+      <img src="/assets/cover/telemetry.jpg" alt="">
+    </figure>
+    <section class="panel">
+      <div>
+        <h2>Telemetry: what it really is</h2>
+        <p>Understanding telemetry beyond the buzzword.</p>
+        <a href="{{ '/articles/telemetry-what-it-is.html' | relative_url }}">READ</a>
+      </div>
+    </section>
 
-## Notes
-
-- [Ideas]({{ '/ideas.html' | relative_url }})
+  </article>
+</div>
