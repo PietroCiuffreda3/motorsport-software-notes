@@ -1,55 +1,84 @@
 /* ==========================================================
    Motorsport Software Notes — UniUD (formulasae.uniud.it) inspired skin
-   Goal: same structure/colors/typography feel as UniUD "Progetto" + article pages
-   NOTE:
-   - This stylesheet assumes your HTML uses these wrappers/classes:
-     .component-nav, .logo-header, .hamburger, .bar, .main-content, .general-content-wrapper
-   - Your _layouts/default.html should wrap {{ content }} inside:
-       <div class="main-content"><div class="general-content-wrapper">...</div></div>
-   - Remove theme/minima imports; use only this custom.scss from assets/main.scss
-   ========================================================== */
+   ==========================================================
 
-/* ---------- Font (user-provided) ----------
-   Put your font files in:
-     assets/fonts/tt-travels-next-trl/
-   Recommended: .woff2 (best) + .woff (fallback)
-
-   Update filenames below to match your real files.
+   REQUIREMENTS (so this CSS actually applies):
+   - Your HTML layout must use:
+     .component-nav, .logo-header, .hamburger, .bar,
+     .main-content, .general-content-wrapper
+   - assets/main.scss should be:
+       ---
+       ---
+       @import "custom";
+   - No Minima theme import (remove theme: minima / @import "minima")
 */
-@font-face {
+
+/* ==========================================================
+   1) FONT — TT Travels Next Trl (WOFF2)
+   ==========================================================
+   Put all .woff2 in:
+     assets/fonts/tt-travels-next-trl/
+
+   IMPORTANT:
+   - Edit the filenames below to match YOUR real files.
+   - If you have many styles, keep only Regular/Medium/Bold + Italic variants.
+*/
+
+/* ---- EDIT THESE FILENAMES (examples) ---- */
+@font-face{
   font-family: "TT Travels Next Trl";
-  src:
-    url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Regular.woff2") format("woff2"),
-    url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Regular.woff") format("woff");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-@font-face {
+@font-face{
   font-family: "TT Travels Next Trl";
-  src:
-    url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Medium.woff2") format("woff2"),
-    url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Medium.woff") format("woff");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face{
+  font-family: "TT Travels Next Trl";
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-@font-face {
+@font-face{
   font-family: "TT Travels Next Trl";
-  src:
-    url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Bold.woff2") format("woff2"),
-    url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Bold.woff") format("woff");
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face{
+  font-family: "TT Travels Next Trl";
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+@font-face{
+  font-family: "TT Travels Next Trl";
+  src: url("../fonts/tt-travels-next-trl/TTTravelsNextTrl-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 
-/* ---------- Design tokens ---------- */
+/* ==========================================================
+   2) TOKENS
+   ========================================================== */
+
 :root{
   --bg: #0e0e0e;
   --bg-2: #0b0b0c;
+
   --panel: rgba(255,255,255,0.06);
   --panel-2: rgba(255,255,255,0.04);
+
   --border: rgba(255,255,255,0.12);
   --border-2: rgba(255,255,255,0.08);
 
@@ -57,7 +86,6 @@
   --muted: rgba(255,255,255,0.72);
   --muted-2: rgba(255,255,255,0.58);
 
-  /* UniUD-like accent */
   --accent: #18a6ff;
 
   --shadow: 0 18px 46px rgba(0,0,0,0.45);
@@ -66,14 +94,19 @@
   --maxw: 1180px;
 }
 
-/* ---------- Base / reset-ish ---------- */
+/* ==========================================================
+   3) BASE
+   ========================================================== */
+
 *{ box-sizing: border-box; }
+
 html, body{
   background: var(--bg);
   color: var(--text);
   margin: 0;
   padding: 0;
 }
+
 body{
   font-family: "TT Travels Next Trl", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   text-rendering: optimizeLegibility;
@@ -84,12 +117,6 @@ body{
 
 img{ max-width: 100%; height: auto; }
 figure{ margin: 0; }
-hr{
-  border: 0;
-  height: 1px;
-  background: var(--border-2);
-  margin: 28px 0;
-}
 
 a{
   color: var(--accent);
@@ -97,17 +124,31 @@ a{
 }
 a:hover{ text-decoration: underline; }
 
-/* ---------- Main wrappers like UniUD ---------- */
+hr{
+  border: 0;
+  height: 1px;
+  background: var(--border-2);
+  margin: 28px 0;
+}
+
+/* ==========================================================
+   4) WRAPPERS (UniUD-like)
+   ========================================================== */
+
 .main-content{
   background: var(--bg);
 }
+
 .general-content-wrapper{
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 56px 22px 80px;
 }
 
-/* ---------- NAV (component-nav) ---------- */
+/* ==========================================================
+   5) NAVBAR (UniUD-like)
+   ========================================================== */
+
 .component-nav{
   position: sticky;
   top: 0;
@@ -148,11 +189,13 @@ a:hover{ text-decoration: underline; }
   color: rgba(255,255,255,0.92);
 }
 
+/* Nav links + (optional) social icons container */
 .component-nav nav{
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 22px 14px;
   display:flex;
+  align-items: center;
   gap: 26px;
   flex-wrap: wrap;
 }
@@ -183,12 +226,44 @@ a:hover{ text-decoration: underline; }
 .bar.active:nth-child(1){ transform: translateY(5px) rotate(45deg); }
 .bar.active:nth-child(2){ transform: translateY(-5px) rotate(-45deg); }
 
-/* Optional: "open" state for mobile nav (if you toggle .component-nav.open) */
+/* When you toggle .component-nav.open (via JS) */
 .component-nav.open nav{
   padding-bottom: 18px;
 }
 
-/* ---------- Typography like UniUD article pages ---------- */
+/* Social icons (if you add them in nav) */
+.nav-social{
+  margin-left: auto;
+  display:inline-flex;
+  align-items:center;
+  gap: 14px;
+}
+.icon-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  text-decoration:none;
+}
+.icon-link svg{
+  width: 18px;
+  height: 18px;
+  fill: rgba(255,255,255,0.85);
+}
+.icon-link:hover{
+  border-color: rgba(24,166,255,0.55);
+  background: rgba(24,166,255,0.16);
+}
+.icon-link:hover svg{ fill:#fff; }
+
+/* ==========================================================
+   6) TYPOGRAPHY (like UniUD article pages)
+   ========================================================== */
+
 .general-content-wrapper h1{
   font-size: clamp(2.4rem, 4.5vw, 3.6rem);
   line-height: 1.05;
@@ -235,14 +310,10 @@ a:hover{ text-decoration: underline; }
   border-radius: 10px;
 }
 
-/* ---------- UniUD "Progetto" section layout (text left, image right) ----------
-   Use this in your pages by wrapping each section in:
-     <div class="z-image-subsection-wrapper"> ... </div>
-   with:
-     <h2 class="z-image-title">...</h2>
-     <div class="z-image-text">...</div>
-     <figure class="z-image-image"><img ...></figure>
-*/
+/* ==========================================================
+   7) "PROGETTO" SECTION GRID (text left, image right)
+   ========================================================== */
+
 .z-image-subsection-wrapper{
   display:grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -259,9 +330,7 @@ a:hover{ text-decoration: underline; }
   margin: 0;
 }
 
-.z-image-text{
-  grid-area: text;
-}
+.z-image-text{ grid-area: text; }
 
 .z-image-image{
   grid-area: image;
@@ -279,7 +348,7 @@ a:hover{ text-decoration: underline; }
   opacity: 0.92;
 }
 
-/* Hero buttons like UniUD */
+/* Buttons like UniUD */
 .hero-buttons{
   display:flex;
   gap: 12px;
@@ -309,10 +378,10 @@ a:hover{ text-decoration: underline; }
   text-decoration:none;
 }
 
-/* ---------- Home cards (if you keep your "two panels" layout) ----------
-   If you changed home to a UniUD "Progetto" list (z-image-subsection-wrapper),
-   you can remove this entire block.
-*/
+/* ==========================================================
+   8) HOME "cards" (optional; remove if you fully switch to z-image sections)
+   ========================================================== */
+
 .sticky-split{ margin-top: 6px; }
 .sticky-split article{
   display:grid;
@@ -321,7 +390,7 @@ a:hover{ text-decoration: underline; }
   align-items: stretch;
 }
 .sticky-split .panel{
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
   border: 1px solid var(--border-2);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -340,9 +409,7 @@ a:hover{ text-decoration: underline; }
   filter: grayscale(1) contrast(1.05);
   opacity: 0.85;
 }
-.sticky-split section.panel{
-  display:flex;
-}
+.sticky-split section.panel{ display:flex; }
 .sticky-split section.panel > div{
   padding: 22px 22px 20px;
   display:flex;
@@ -378,7 +445,10 @@ a:hover{ text-decoration: underline; }
   color:#fff;
 }
 
-/* ---------- Tables ---------- */
+/* ==========================================================
+   9) TABLES + CODE
+   ========================================================== */
+
 table{
   width: 100%;
   max-width: 100%;
@@ -404,7 +474,6 @@ th{
 }
 tr:hover td{ background: rgba(255,255,255,0.03); }
 
-/* ---------- Code blocks ---------- */
 pre, code{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -431,7 +500,10 @@ pre code{
   padding: 0;
 }
 
-/* ---------- Responsive ---------- */
+/* ==========================================================
+   10) RESPONSIVE
+   ========================================================== */
+
 @media (max-width: 980px){
   .z-image-subsection-wrapper{
     grid-template-columns: 1fr;
@@ -447,49 +519,6 @@ pre code{
   .sticky-split article{ grid-template-columns: 1fr; }
   .component-nav nav{ gap: 14px; }
   .site-title-text{ font-size: 0.9rem; }
-}
-.nav-links{
-  display: flex;
-  align-items: center;
-  gap: 26px;
-  flex-wrap: wrap;
-}
-
-.nav-social{
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.icon-link{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.04);
-  text-decoration: none;
-}
-
-.icon-link svg{
-  width: 18px;
-  height: 18px;
-  fill: rgba(255,255,255,0.85);
-}
-
-.icon-link:hover{
-  border-color: rgba(24,166,255,0.55);
-  background: rgba(24,166,255,0.16);
-}
-.icon-link:hover svg{
-  fill: #fff;
-}
-
-/* mobile: icone sotto */
-@media (max-width: 900px){
   .nav-social{
     width: 100%;
     margin-left: 0;
