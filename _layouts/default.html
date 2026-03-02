@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0e0e0e">
 
-  <title>
-    {% if page.title %}
-      {{ page.title }} • {{ site.title }}
-    {% else %}
-      {{ site.title }}
-    {% endif %}
-  </title>
-
+  {% seo %}
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  {% feed_meta %}
 </head>
 
 <body>
+  <header>
+    <div class="component-nav">
+      <div class="logo-header">
+        <a href="{{ '/' | relative_url }}">
+          {% if site.logo %}
+            <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" />
+          {% else %}
+            <span class="site-title-text">{{ site.title }}</span>
+          {% endif %}
+        </a>
 
-  <!-- HEADER -->
-  <header class="ue-header">
-    <div class="ue-header__inner">
+        <div class="hamburger" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
 
-      <a class="ue-brand" href="{{ '/' | relative_url }}">
-        {{ site.title }}
-      </a>
-
-      <nav class="ue-nav">
-        <a href="{{ '/' | relative_url }}">Home</a>
+      <nav>
+        <a href="{{ '/project/' | relative_url }}">Progetto</a>
+        <a href="{{ '/team/' | relative_url }}">Team</a>
         <a href="{{ '/articles/' | relative_url }}">Blog</a>
+        <a href="{{ '/contact/' | relative_url }}">Contatti</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- CONTENUTO -->
-  <main class="ue-shell">
-    {{ content }}
-  </main>
+  <div class="main-content">
+    <div class="general-content-wrapper">
+      {{ content }}
+    </div>
+  </div>
 
+  <script>
+    function toggleMenu() {
+      const bars = document.querySelectorAll('.bar');
+      bars.forEach(bar => bar.classList.toggle('active'));
+      const nav = document.querySelector('.component-nav');
+      nav.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>

@@ -1,17 +1,20 @@
 /* ==========================================================
-   Motorsport Software Notes — Dark motorsport-inspired skin
-   Reference: formulasae.uniud.it (dark header, cyan accent, cards)
+   Motorsport Software Notes — UniUD (formulasae.uniud.it) inspired skin
+   Goal: same structure/colors/typography feel as UniUD "Progetto" + article pages
+   NOTE:
+   - This stylesheet assumes your HTML uses these wrappers/classes:
+     .component-nav, .logo-header, .hamburger, .bar, .main-content, .general-content-wrapper
+   - Your _layouts/default.html should wrap {{ content }} inside:
+       <div class="main-content"><div class="general-content-wrapper">...</div></div>
+   - Remove theme/minima imports; use only this custom.scss from assets/main.scss
    ========================================================== */
 
 /* ---------- Font (user-provided) ----------
    Put your font files in:
      assets/fonts/tt-travels-next-trl/
-   Recommended formats: .woff2 (best) + .woff (fallback)
+   Recommended: .woff2 (best) + .woff (fallback)
 
-   Example expected filenames (edit to match yours):
-     TTTravelsNextTrl-Regular.woff2
-     TTTravelsNextTrl-Medium.woff2
-     TTTravelsNextTrl-Bold.woff2
+   Update filenames below to match your real files.
 */
 @font-face {
   font-family: "TT Travels Next Trl";
@@ -42,220 +45,322 @@
 }
 
 /* ---------- Design tokens ---------- */
-:root {
-  --bg: #0b0b0c;
-  --bg-2: #0f1012;
-  --panel: #17181b;
-  --panel-2: #1f2126;
-  --border: rgba(255,255,255,0.10);
-  --border-2: rgba(255,255,255,0.14);
+:root{
+  --bg: #0e0e0e;
+  --bg-2: #0b0b0c;
+  --panel: rgba(255,255,255,0.06);
+  --panel-2: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.12);
+  --border-2: rgba(255,255,255,0.08);
 
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.70);
-  --muted-2: rgba(255,255,255,0.55);
+  --text: rgba(255,255,255,0.86);
+  --muted: rgba(255,255,255,0.72);
+  --muted-2: rgba(255,255,255,0.58);
 
-  /* cyan/blue accent similar to reference */
+  /* UniUD-like accent */
   --accent: #18a6ff;
-  --accent-2: #0d7fd6;
 
-  --shadow: 0 16px 40px rgba(0,0,0,0.35);
+  --shadow: 0 18px 46px rgba(0,0,0,0.45);
   --radius: 14px;
 
-  --maxw: 1120px;
-  --maxw-text: 70ch;
+  --maxw: 1180px;
 }
 
-/* ---------- Base ---------- */
-html, body {
-  height: auto;
-  overflow-y: auto;
+/* ---------- Base / reset-ish ---------- */
+*{ box-sizing: border-box; }
+html, body{
   background: var(--bg);
-}
-
-body {
   color: var(--text);
-  font-family: "TT Travels Next Trl", "TT Travels Next", system-ui, -apple-system, Segoe UI, Roboto, sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: "TT Travels Next Trl", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-a {
+img{ max-width: 100%; height: auto; }
+figure{ margin: 0; }
+hr{
+  border: 0;
+  height: 1px;
+  background: var(--border-2);
+  margin: 28px 0;
+}
+
+a{
   color: var(--accent);
   text-decoration: none;
 }
-a:hover { color: #7bd0ff; text-decoration: underline; }
+a:hover{ text-decoration: underline; }
 
-hr {
-  border: 0;
-  height: 1px;
-  background: var(--border);
+/* ---------- Main wrappers like UniUD ---------- */
+.main-content{
+  background: var(--bg);
 }
-
-/* Minima containers */
-.wrapper {
+.general-content-wrapper{
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 18px;
+  padding: 56px 22px 80px;
 }
 
-.page-content { padding: 32px 0 52px; }
-
-p, li, .post-content > * {
-  max-width: var(--maxw-text);
-}
-
-.post-title, h1, h2, h3 {
-  letter-spacing: -0.02em;
-}
-
-h1 { font-size: clamp(2rem, 4vw, 3.2rem); }
-h2 { font-size: clamp(1.45rem, 2.6vw, 2.2rem); color: var(--accent); }
-h3 { font-size: 1.3rem; color: rgba(255,255,255,0.88); }
-
-.post-meta, .site-title, .site-nav, .footer-col-wrapper {
-  color: var(--muted);
-}
-
-/* ---------- Top header (inspired) ---------- */
-.site-header--dark {
-  background: linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.65));
-  border-top: 0;
-  border-bottom: 1px solid var(--border);
+/* ---------- NAV (component-nav) ---------- */
+.component-nav{
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
+  background: rgba(0,0,0,0.88);
   backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-2);
 }
 
-.site-header__inner {
+.component-nav .logo-header{
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
+  padding: 14px 22px;
+  display:flex;
+  align-items:center;
   justify-content: space-between;
   gap: 18px;
 }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.component-nav .logo-header a{
+  display:inline-flex;
+  align-items:center;
+  gap: 12px;
+  text-decoration:none;
   color: var(--text);
-  text-decoration: none;
-}
-.brand:hover { text-decoration: none; }
-
-.brand__mark {
-  width: 30px;
-  height: 20px;
-  border-left: 6px solid var(--accent);
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  transform: skewX(-18deg);
-  opacity: 0.95;
 }
 
-.brand__text {
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.component-nav .logo-header img{
+  height: 34px;
+  display:block;
+}
+
+.site-title-text{
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 0.95rem;
   color: rgba(255,255,255,0.92);
 }
 
-/* Navbar */
-.topnav {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-.topnav__link {
-  color: rgba(255,255,255,0.82);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.82rem;
-  padding: 10px 4px;
-}
-.topnav__link:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-/* ---------- Footer ---------- */
-.site-footer--dark {
-  border-top: 1px solid var(--border);
-  background: rgba(0,0,0,0.35);
-}
-.site-footer__inner {
+.component-nav nav{
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 18px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
+  padding: 0 22px 14px;
+  display:flex;
+  gap: 26px;
+  flex-wrap: wrap;
 }
-.site-footer__meta { color: var(--muted-2); }
-.site-footer__meta .sep { margin: 0 10px; opacity: 0.55; }
-.site-footer__links a { color: rgba(255,255,255,0.72); }
-.site-footer__links a:hover { color: #fff; text-decoration: none; }
 
-/* ---------- Home “cards” (sticky split) ---------- */
-.sticky-split {
-  margin-top: 6px;
+.component-nav nav a{
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 14px;
 }
-.sticky-split article {
-  display: grid;
+.component-nav nav a:hover{ color:#fff; text-decoration:none; }
+
+/* hamburger */
+.hamburger{
+  cursor:pointer;
+  display:inline-flex;
+  flex-direction:column;
+  gap: 8px;
+  user-select:none;
+}
+.bar{
+  width: 30px;
+  height: 2px;
+  background: rgba(255,255,255,0.85);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.bar.active:nth-child(1){ transform: translateY(5px) rotate(45deg); }
+.bar.active:nth-child(2){ transform: translateY(-5px) rotate(-45deg); }
+
+/* Optional: "open" state for mobile nav (if you toggle .component-nav.open) */
+.component-nav.open nav{
+  padding-bottom: 18px;
+}
+
+/* ---------- Typography like UniUD article pages ---------- */
+.general-content-wrapper h1{
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  line-height: 1.05;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.general-content-wrapper h2{
+  font-size: 1.65rem;
+  color: var(--accent);
+  font-weight: 800;
+  margin: 22px 0 10px;
+}
+
+.general-content-wrapper h3{
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.92);
+  font-weight: 750;
+  margin: 16px 0 6px;
+}
+
+.general-content-wrapper p{
+  color: rgba(255,255,255,0.78);
+  max-width: 80ch;
+  margin: 0 0 14px;
+}
+
+.general-content-wrapper ul,
+.general-content-wrapper ol{
+  color: rgba(255,255,255,0.78);
+  max-width: 80ch;
+  padding-left: 18px;
+  margin: 0 0 16px;
+}
+
+.general-content-wrapper blockquote{
+  margin: 18px 0;
+  padding: 12px 16px;
+  border-left: 4px solid var(--accent);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.80);
+  border-radius: 10px;
+}
+
+/* ---------- UniUD "Progetto" section layout (text left, image right) ----------
+   Use this in your pages by wrapping each section in:
+     <div class="z-image-subsection-wrapper"> ... </div>
+   with:
+     <h2 class="z-image-title">...</h2>
+     <div class="z-image-text">...</div>
+     <figure class="z-image-image"><img ...></figure>
+*/
+.z-image-subsection-wrapper{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-areas:
+    "title title"
+    "text image";
+  gap: 22px 42px;
+  align-items: start;
+  padding: 18px 0 32px;
+}
+
+.z-image-title{
+  grid-area: title;
+  margin: 0;
+}
+
+.z-image-text{
+  grid-area: text;
+}
+
+.z-image-image{
+  grid-area: image;
+  margin: 0;
+  border: 1px solid var(--border-2);
+  background: rgba(0,0,0,0.22);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.z-image-image img{
+  display:block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);
+  opacity: 0.92;
+}
+
+/* Hero buttons like UniUD */
+.hero-buttons{
+  display:flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.92);
+  background: rgba(0,0,0,0.30);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  text-decoration:none;
+}
+.button:hover{
+  background: rgba(24,166,255,0.16);
+  border-color: rgba(24,166,255,0.55);
+  color: #fff;
+  text-decoration:none;
+}
+
+/* ---------- Home cards (if you keep your "two panels" layout) ----------
+   If you changed home to a UniUD "Progetto" list (z-image-subsection-wrapper),
+   you can remove this entire block.
+*/
+.sticky-split{ margin-top: 6px; }
+.sticky-split article{
+  display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: stretch;
 }
-.sticky-split .panel {
-  background: linear-gradient(180deg, var(--panel), var(--panel-2));
-  border: 1px solid var(--border);
+.sticky-split .panel{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+  border: 1px solid var(--border-2);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  overflow:hidden;
   min-height: 240px;
 }
-.sticky-split figure.panel {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sticky-split figure.panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.sticky-split figure.panel img {
-  width: 100%;
-  height: 100%;
+.sticky-split figure.panel img{
+  width:100%;
+  height:100%;
   object-fit: cover;
   filter: grayscale(1) contrast(1.05);
   opacity: 0.85;
 }
-.sticky-split section.panel {
-  display: flex;
+.sticky-split section.panel{
+  display:flex;
 }
-.sticky-split section.panel > div {
+.sticky-split section.panel > div{
   padding: 22px 22px 20px;
-  display: flex;
-  flex-direction: column;
+  display:flex;
+  flex-direction:column;
   gap: 10px;
-  justify-content: center;
+  justify-content:center;
 }
-.sticky-split section.panel h2 {
-  margin: 0;
+.sticky-split section.panel h2{
+  margin:0;
   color: var(--accent);
   font-weight: 800;
 }
-.sticky-split section.panel p {
-  margin: 0;
+.sticky-split section.panel p{
+  margin:0;
   color: var(--muted);
 }
-
-/* CTA button style inspired by reference */
-.sticky-split section.panel a {
-  align-self: flex-start;
+.sticky-split section.panel a{
+  align-self:flex-start;
   margin-top: 8px;
   padding: 10px 14px;
   border: 1px solid rgba(255,255,255,0.22);
@@ -265,61 +370,46 @@ h3 { font-size: 1.3rem; color: rgba(255,255,255,0.88); }
   letter-spacing: 0.10em;
   text-transform: uppercase;
   font-size: 0.78rem;
+  text-decoration:none;
 }
-.sticky-split section.panel a:hover {
+.sticky-split section.panel a:hover{
   background: rgba(24,166,255,0.16);
   border-color: rgba(24,166,255,0.55);
-  color: #fff;
-  text-decoration: none;
+  color:#fff;
 }
 
-/* anchor for nav */
-#articles { scroll-margin-top: 90px; }
-
-/* ---------- Post content styling ---------- */
-.post-content {
-  margin-top: 18px;
-}
-.post-content blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 10px 16px;
-  margin: 18px 0;
-  background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.85);
-  border-radius: 10px;
-}
-
-.post-content img {
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,0.25);
-}
-
-table {
+/* ---------- Tables ---------- */
+table{
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  overflow: hidden;
   border-radius: 12px;
-  border: 1px solid var(--border);
+  overflow:hidden;
+  border: 1px solid var(--border-2);
+  background: rgba(255,255,255,0.02);
+  margin: 18px 0 22px;
 }
-th, td {
+th, td{
   padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-2);
+  color: rgba(255,255,255,0.78);
 }
-th {
-  text-align: left;
+th{
+  text-align:left;
   background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.92);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-size: 12px;
 }
-tr:hover td { background: rgba(255,255,255,0.03); }
+tr:hover td{ background: rgba(255,255,255,0.03); }
 
 /* ---------- Code blocks ---------- */
-pre, code {
+pre, code{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-code {
+code{
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
@@ -327,7 +417,7 @@ code {
   color: rgba(255,255,255,0.92);
 }
 
-pre {
+pre{
   background: rgba(10,10,12,0.85);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 14px;
@@ -335,50 +425,26 @@ pre {
   overflow: auto;
   box-shadow: 0 10px 28px rgba(0,0,0,0.35);
 }
-pre code {
+pre code{
   background: transparent;
   border: 0;
   padding: 0;
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  .sticky-split article {
+@media (max-width: 980px){
+  .z-image-subsection-wrapper{
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "text"
+      "image";
+    gap: 18px;
   }
-  .topnav { gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-  .site-header__inner { align-items: flex-start; }
-  .brand__text { font-size: 0.9rem; }
-}
-/* ===== FORCE FULL DARK LAYOUT ===== */
-
-html, body {
-  background: #0b0b0b !important;
-  color: rgba(255,255,255,.88) !important;
 }
 
-/* elimina wrapper minima */
-.wrapper,
-.page-content,
-.site-content,
-.container {
-  max-width: none !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-
-/* forza il nostro container */
-.ue-shell {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 60px 40px 80px !important;
-}
-
-/* rimuove eventuale background bianco dai post */
-.post-content,
-.post,
-article {
-  background: transparent !important;
+@media (max-width: 900px){
+  .sticky-split article{ grid-template-columns: 1fr; }
+  .component-nav nav{ gap: 14px; }
+  .site-title-text{ font-size: 0.9rem; }
 }
