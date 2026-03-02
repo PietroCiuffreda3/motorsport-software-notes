@@ -1,0 +1,434 @@
+/* ---------- Base / Scroll safety ---------- */
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+
+/* ---------- Typography ---------- */
+@font-face {
+  font-family: 'TT Travels Next';
+  src: url('/assets/fonts/TTTravelsNext-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Travels Next';
+  src: url('/assets/fonts/TTTravelsNext-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} 
+body {
+  font-family: 'TT Travels Next', system-ui, -apple-system, sans-serif !important;
+}
+:root {
+  --text-max-width: 65ch;
+  --body-font-size: 18px;
+  --body-line-height: 1.75;
+}
+
+body {
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p, li {
+  max-width: var(--text-max-width);
+}
+
+small, .small {
+  font-size: var(--small-font-size);
+}
+
+/* ---------- Content width / Centering ---------- */
+/* Minima uses .wrapper and .page-content */
+.wrapper {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.page-content {
+  padding: 28px 0;
+}
+
+.post, .page, .home {
+  display: block;
+}
+
+/* Make main text column comfortable */
+.post-content, .page-content .wrapper {
+  /* keep it readable; headings can exceed with their own styles */
+}
+
+/* ---------- Headings hierarchy ---------- */
+h1, h2, h3 {
+  max-width: var(--text-max-width);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 1.6em;
+  margin-bottom: 0.4em;
+}
+
+/* ---------- Links ---------- */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Lists & spacing ---------- */
+p {
+  margin: 0.9em 0;
+  max-width: var(--text-max-width);
+}
+
+ul, ol {
+  margin: 0.8em 0 0.8em 1.2em;
+  max-width: var(--text-max-width);
+}
+
+li {
+  margin: 0.25em 0;
+}
+
+hr {
+  max-width: var(--text-max-width);
+  margin: 2em 0;
+}
+
+/* ---------- Blockquotes (technical note style) ---------- */
+blockquote {
+  border-left: 2px solid #d4d4d4;
+  padding-left: 1em;
+  margin: 1.4em 0;
+  background: none;
+  color: #444;
+}
+/* ---------- Code (inline + blocks) ---------- */
+pre {
+  background: #eeeeee;
+  border: 1px solid #1e1e1e;
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin: 1.4em 0;
+}
+
+code {
+  font-size: 0.95em;
+}
+
+pre code {
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
+/* ---------- Tables ---------- */
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+thead th {
+  border-bottom: 2px solid #dcdcdc;
+}
+
+/* ---------- Article meta (date, etc.) ---------- */
+.post-meta {
+  max-width: var(--text-max-width);
+  margin-bottom: 1em;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- Footer tightening ---------- */
+.site-footer {
+  padding: 22px 0;
+}
+/* ---------- Homepage refinement ---------- */
+.page-content h2 {
+  margin-top: 2.4em;
+}
+
+.page-content a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.page-content ul {
+  padding-left: 1.2em;
+}
+
+.page-content li {
+  margin: 0.5em 0;
+}
+/* Sticky split layout (scoped) */
+.sticky-split,
+.sticky-split * ,
+.sticky-split *::before,
+.sticky-split *::after {
+  box-sizing: border-box;
+}
+
+.sticky-split {
+  background: #000;
+  color: #111;
+  font-family: 'Vollkorn', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* mobile: stack normale */
+.sticky-split .panel {
+  background: #e5e5e5;
+  margin: 0 0 2rem 0;
+  padding: 1.25rem;
+  border-radius: 14px;
+}
+
+.sticky-split figure.panel {
+  background: #eee;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sticky-split figure.panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media screen and (min-width: 700px) {
+  .sticky-split > article {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sticky-split figure.panel {
+    background: #eee;
+    width: calc(50% + 1px);
+    height: 100vh;
+    margin: 0 auto 10vh 0;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    box-shadow: 4px -4px 8px rgba(0,0,0,.4);
+  }
+
+  .sticky-split figure.panel::after {
+    content: '';
+    position: absolute;
+    top: 5vmin;
+    right: 5vmin;
+    bottom: 5vmin;
+    left: 45%;
+    border: 2px dashed #fff;
+    outline: 1px solid #fff;
+    outline-offset: -5vmin;
+    backdrop-filter: grayscale(1);
+    pointer-events: none;
+  }
+
+  .sticky-split figure.panel:nth-of-type(2n)::after {
+    right: 45%;
+    left: 5vmin;
+  }
+
+  .sticky-split section.panel {
+    background: #e5e5e5;
+    width: calc(50% + 1px);
+    height: 100vh;
+    margin: 0 0 10vh auto;
+    position: sticky;
+    top: 0;
+    padding: 5vmin;
+    box-shadow: -4px -4px 8px rgba(0,0,0,.4);
+  }
+
+  .sticky-split figure.panel:nth-of-type(1),
+  .sticky-split section.panel:nth-of-type(1) {
+    margin: 0 0 10vh 0;
+    width: 50%;
+  }
+
+  .sticky-split figure.panel:nth-of-type(2n) {
+    margin: 0 0 10vh auto;
+    box-shadow: -4px -4px 8px rgba(0,0,0,.4);
+  }
+
+  .sticky-split section.panel:nth-of-type(2n) {
+    margin: 0 auto 10vh 0;
+    box-shadow: 4px -4px 8px rgba(0,0,0,.4);
+  }
+
+  .sticky-split figure.panel:last-of-type,
+  .sticky-split section.panel:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .sticky-split section.panel::before {
+    background: inherit;
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 7vmin;
+    height: 7vmin;
+    transform: translate(calc(-50% + 1px), -50%) rotate(-45deg);
+    clip-path: polygon(-15% -15%, 110% 0%, 0% 110%);
+    box-shadow: -4px -2px 8px rgba(0,0,0,.4);
+    border-radius: 1.5vmin 0 0 0;
+  }
+
+  .sticky-split section.panel:nth-of-type(2n)::before {
+    left: auto;
+    right: 0;
+    transform: translate(calc(50% - 1px), -50%) rotate(-45deg) scale(-1);
+  }
+
+  .sticky-split section.panel::after {
+    content: '';
+    position: absolute;
+    top: 5vmin;
+    right: 45%;
+    bottom: 5vmin;
+    left: 5vmin;
+    border: 2px dashed #fff;
+    outline: 1px solid #fff;
+    outline-offset: -5vmin;
+    backdrop-filter: invert(1);
+    pointer-events: none;
+  }
+
+  .sticky-split section.panel:nth-of-type(2n)::after {
+    right: 5vmin;
+    left: 45%;
+  }
+
+  .sticky-split figure.panel img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .sticky-split section.panel > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .sticky-split h2 {
+    margin: 12% 0 auto;
+    font-size: calc(4vmin + 2.5vmax);
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.05;
+    word-spacing: .35rem;
+  }
+
+  .sticky-split p {
+    text-align: right;
+    width: 100%;
+    font-family: "Cormorant", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: calc(1.2vmin + 1.35vmax);
+    margin: 0 0 5% 0;
+  }
+
+  .sticky-split a {
+    color: transparent;
+    -webkit-text-stroke: 2px #212121;
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+
+  .sticky-split a:hover,
+  .sticky-split a:focus {
+    -webkit-text-stroke: 1px #999;
+  }
+}
+/* Sticky split: post mode (cover left, scrollable text right) */
+@media screen and (min-width: 700px) {
+  .sticky-split--post section.panel {
+    overflow: auto;               /* il testo può scorrere */
+  }
+
+  .sticky-split--post section.panel > .panel-content {
+    display: block;               /* niente centering “hero” */
+    height: auto;
+    padding: 2.5rem 2.5rem 3rem;
+  }
+
+  .sticky-split--post .post-title {
+    margin: 0 0 0.75rem 0;
+    font-size: clamp(1.8rem, 2.2vw, 2.6rem);
+    line-height: 1.1;
+  }
+
+  .sticky-split--post .post-description {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.05rem;
+    opacity: 0.85;
+  }
+
+  .sticky-split--post .post-meta {
+    margin: 0 0 2rem 0;
+    font-size: 0.95rem;
+    opacity: 0.7;
+  }
+
+  .sticky-split--post .post-body {
+    max-width: 68ch;
+  }
+
+  .sticky-split--post .post-body h1,
+  .sticky-split--post .post-body h2,
+  .sticky-split--post .post-body h3 {
+    margin: 2rem 0 0.75rem;
+  }
+
+  .sticky-split--post .post-body p,
+  .sticky-split--post .post-body ul,
+  .sticky-split--post .post-body ol {
+    margin: 0 0 1rem 0;
+  }
+
+  .sticky-split--post .post-home {
+    margin-top: 2.5rem;
+  }
+}
