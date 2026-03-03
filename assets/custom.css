@@ -805,6 +805,6 @@ body{
 .resultDate{ font-size:12px; opacity:.8; white-space:nowrap; }
 .resultSub{ margin-top:4px; font-size:12px; opacity:.85; }
 .resultOutcome{ margin-top:10px; font-weight:600; }
-.u-section-spacing {
-	height: 2.5rem;  
+.u-statsbox{
+	margin-bottom: 2.5rem;
 }

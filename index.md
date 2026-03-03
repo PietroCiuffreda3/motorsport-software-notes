@@ -52,7 +52,7 @@ title: Motorsport Software Notes
       </div>
     {% endif %}
   </div>
- <div class="u-section-spacing">
+ <section class="u-statsbox">
   <section class="u-news-card u-stats" aria-label="Site stats">
     <div class="u-stats__row">
       <div class="u-stats__item">
@@ -80,7 +80,8 @@ title: Motorsport Software Notes
       <a class="u-btn" href="{{ '/results/' | relative_url }}">Open results</a>
     </div>
   </section>
-</div>
+  </section>
+
 
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
