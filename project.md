@@ -4,7 +4,13 @@ title: Projects
 permalink: /project/
 ---
 
-{% assign projects = site.projects | sort: "date" | reverse %}
+{%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
+{% assign _grouped_projects = site.projects | group_by: 'url' %}
+{% assign projects = '' | split: '' %}
+{% for g in _grouped_projects %}
+  {% assign projects = projects | push: g.items[0] %}
+{% endfor %}
+{% assign projects = projects | sort: "date" | reverse %}
 
 <section class="x-page">
   <div class="x-wrap">

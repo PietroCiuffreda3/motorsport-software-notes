@@ -10,7 +10,10 @@ permalink: /articles/
     <p class="x-muted">All notes, ordered by date.</p>
 
     <div class="x-grid">
-      {% for post in site.posts %}
+      {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
+      {% assign _grouped_posts = site.posts | group_by: 'url' %}
+      {% for g in _grouped_posts %}
+        {% assign post = g.items[0] %}
         <article class="x-card">
           <a class="x-card__media" href="{{ post.url | relative_url }}">
             {% if post.hero %}
