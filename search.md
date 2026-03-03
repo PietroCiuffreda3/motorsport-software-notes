@@ -37,9 +37,9 @@ permalink: /search/
   const data = [];
 
   // De-dupe posts at build-time (Jekyll can pick up duplicates if you have mirrored folders).
-  {% assign unique_posts = site.posts | group_by: 'url' %}
+  {% assign unique_posts = site.posts | group_by: "url" %}
   {% for g in unique_posts %}
-    {% assign post = g.items[0] %}
+  {% assign post = g.items | first %}
     data.push({
       type: 'Article',
       title: {{ post.title | jsonify }},
