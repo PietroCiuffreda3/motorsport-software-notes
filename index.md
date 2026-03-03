@@ -3,7 +3,7 @@ layout: default
 title: Motorsport Software Notes
 ---
 
-<div id="chi-siamo" class="u-hero" style="background-image: url('{{ '/assets/img/tel.png' | relative_url }}')">
+<div id="chi-siamo" class="u-hero" style="background-image: url('{{ '/assets/img/notes.jpg' | relative_url }}')">
   <div class="u-hero__overlay"></div>
 
   <div class="u-hero__content">
