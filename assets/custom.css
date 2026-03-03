@@ -700,6 +700,7 @@ body{
   gap:16px;
   grid-template-columns:repeat(12,minmax(0,1fr));
   margin:18px 0 24px;
+  margin-bottom: 2.5rem;
 }
 
 .statsGrid > .statCard{ grid-column:span 4; }

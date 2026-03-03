@@ -13,7 +13,7 @@ permalink: /results/
     {% assign meta = stint.items | first %}
     <section class="u-stint" aria-label="{{ meta.team_name }} stint">
       <header class="u-stint__header">
-        <img src="{{ '/assets/images/logo_SiLo.jpg' | relative_url }}" alt="SiLo Racing logo">loading="lazy">
+        <img src="{{ '/assets/teams/logo_SiLo.jpg' | relative_url }}" alt="SiLo Racing logo">loading="lazy">
         <div class="u-stint__meta">
           <div class="u-stint__title">{{ meta.team_name }}</div>
           <div class="u-stint__dates">
