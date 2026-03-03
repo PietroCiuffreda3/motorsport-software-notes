@@ -57,7 +57,7 @@ permalink: /search/
         title: {{ p.title | jsonify }},
         subtitle: {{ p.subtitle | default: '' | jsonify }},
         url: {{ p.url | relative_url | jsonify }},
-        date: {{ p.date | default: '' | jsonify }},
+        date: {{ p.date | date: "%Y-%m-%d" | jsonify }},
         hero: {{ p.hero | default: '' | relative_url | jsonify }}
       });
     {% endfor %}
@@ -70,7 +70,7 @@ permalink: /search/
         title: {{ r.title | jsonify }},
         subtitle: {{ r.subtitle | default: '' | jsonify }},
         url: {{ r.url | relative_url | jsonify }},
-        date: {{ r.date | default: '' | jsonify }},
+        date: {{ r.date | date: "%Y-%m-%d" | jsonify }},
         hero: {{ r.image | default: r.hero | default: '' | relative_url | jsonify }}
       });
     {% endfor %}
