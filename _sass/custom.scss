@@ -438,6 +438,7 @@ pre code{
 .u-card,
 .u-news-card{
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  margin-bottom: 2.5rem;
 }
 
 .u-card:focus-within,
@@ -481,6 +482,7 @@ pre code{
   border-radius: calc(var(--radius) + 2px);
   overflow: hidden;
   box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+  margin-bottom: 2.5rem;
 }
 
 .u-news-card__img{
