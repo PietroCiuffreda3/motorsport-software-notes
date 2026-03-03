@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<article class="x-page">
+  <div class="x-wrap">
+    <header class="x-posthead">
+      <h1 class="x-h1" id="{{ page.title | slugify }}">{{ page.title }}</h1>
+      {% if page.subtitle %}
+        <p class="x-posthead__sub">{{ page.subtitle }}</p>
+      {% endif %}
+      <div class="x-posthead__meta">
+        <span class="x-pill x-pill--soft">Result</span>
+        {% if page.date %}<span class="x-date">{{ page.date | date: "%d %b %Y" }}</span>{% endif %}
+      </div>
+    </header>
+
+    <div class="x-prose">
+      {{ content }}
+    </div>
+  </div>
+</article>

@@ -29,6 +29,7 @@ collections:
     permalink: /project/:name/
   results:
     output: true
+    permalink: /results/:name/
 
 defaults:
   - scope:
@@ -41,6 +42,11 @@ defaults:
       type: "projects"
     values:
       layout: project
+  - scope:
+      path: ""
+      type: "results"
+    values:
+      layout: result
 nav:
   - title: Home
     url: /

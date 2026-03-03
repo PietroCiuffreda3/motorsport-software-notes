@@ -52,32 +52,32 @@ title: Motorsport Software Notes
     {% endif %}
   </div>
 
-  <section class="card statsCard">
-  <div class="statsRow">
-    <div class="statItem">
-      <div class="statItem__label">Articles</div>
-      <div class="statItem__value">{{ site.posts | size }}</div>
+  <section class="u-news-card u-stats" aria-label="Site stats">
+    <div class="u-stats__row">
+      <div class="u-stats__item">
+        <div class="u-stats__label">Articles</div>
+        <div class="u-stats__value">{{ site.posts | size }}</div>
+      </div>
+
+      <div class="u-stats__divider" aria-hidden="true"></div>
+
+      <div class="u-stats__item">
+        <div class="u-stats__label">Projects</div>
+        <div class="u-stats__value">{{ site.projects | size }}</div>
+      </div>
+
+      <div class="u-stats__divider" aria-hidden="true"></div>
+
+      <div class="u-stats__item">
+        <div class="u-stats__label">Race results</div>
+        <div class="u-stats__value">{{ site.results | size }}</div>
+      </div>
     </div>
 
-    <div class="statDivider" aria-hidden="true"></div>
-
-    <div class="statItem">
-      <div class="statItem__label">Projects</div>
-      <div class="statItem__value">{{ site.projects | size }}</div>
+    <div class="u-stats__cta">
+      <a class="u-btn" href="{{ '/results/' | relative_url }}">Open results</a>
     </div>
-
-    <div class="statDivider" aria-hidden="true"></div>
-
-    <div class="statItem">
-      <div class="statItem__label">Race results</div>
-      <div class="statItem__value">{{ site.results | size }}</div>
-    </div>
-  </div>
-
-  <div class="statsCtaRow">
-    <a class="statsLink" href="/race-results">View results →</a>
-  </div>
-</section>
+  </section>
 
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
