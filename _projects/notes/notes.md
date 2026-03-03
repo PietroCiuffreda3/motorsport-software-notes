@@ -8,7 +8,7 @@ status: "in-progress"
 repo_url: "https://github.com/..."
 demo_url: ""
 stack: ["Excel", "Telemetry", "Data Analysis"]
-cover_image: "/assets/img/esds.jpg"
+cover_image: "/assets/img/notes.jpg"
 ---
 
 This project is the knowledge base behind the site: articles, notes, and a growing set of practical templates.

@@ -52,28 +52,28 @@ title: Motorsport Software Notes
     {% endif %}
   </div>
 
-  <section class="stats">
-    <div class="stat">
-      <div class="stat__value">{{ site.posts | size }}</div>
-      <div class="stat__label">Articles</div>
+  <section class="statsGrid">
+  <article class="card statCard">
+    <div class="card__content statCard__content">
+      <div class="statCard__value">{{ site.posts | size }}</div>
+      <div class="statCard__label">Articles</div>
     </div>
+  </article>
 
-    <div class="stat">
-      <div class="stat__value">
-        {% assign projects_count = site.projects | size %}
-        {{ projects_count }}
-      </div>
-      <div class="stat__label">Projects</div>
+  <article class="card statCard">
+    <div class="card__content statCard__content">
+      <div class="statCard__value">{{ site.projects | size }}</div>
+      <div class="statCard__label">Projects</div>
     </div>
+  </article>
 
-    <div class="stat">
-      <div class="stat__value">
-        {% assign tags_count = site.tags | size %}
-        {{ tags_count }}
-      </div>
-      <div class="stat__label">Topics</div>
+  <article class="card statCard">
+    <div class="card__content statCard__content">
+      <div class="statCard__value">{{ site.tags | size }}</div>
+      <div class="statCard__label">Topics</div>
     </div>
-  </section>
+  </article>
+</section>
 
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
