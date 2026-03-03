@@ -52,6 +52,29 @@ title: Motorsport Software Notes
     {% endif %}
   </div>
 
+  <section class="stats">
+    <div class="stat">
+      <div class="stat__value">{{ site.posts | size }}</div>
+      <div class="stat__label">Articles</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat__value">
+        {% assign projects_count = site.projects | size %}
+        {{ projects_count }}
+      </div>
+      <div class="stat__label">Projects</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat__value">
+        {% assign tags_count = site.tags | size %}
+        {{ tags_count }}
+      </div>
+      <div class="stat__label">Topics</div>
+    </div>
+  </section>
+
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
     {% assign _grouped_posts = site.posts | group_by: 'url' %}
@@ -62,7 +85,7 @@ title: Motorsport Software Notes
           {% if post.hero %}
             <img src="{{ post.hero | relative_url }}" alt="{{ post.hero_alt | default: post.title }}" loading="lazy">
           {% else %}
-            <img src="{{ '/assets/cover/telemetry.svg' | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            <img src="{{ '/assets/cover/notes.jpg' | relative_url }}" alt="{{ post.title }}" loading="lazy">
           {% endif %}
         </div>
         <div class="u-news-card__body">

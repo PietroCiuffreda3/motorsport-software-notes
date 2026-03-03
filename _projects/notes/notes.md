@@ -5,9 +5,10 @@ date: 2026-03-02
 description: "Technical notes and tools for motorsport engineering."
 tags: [motorsport, data, software]
 status: "in-progress"
+repo_url: "https://github.com/..."
 demo_url: ""
 stack: ["Excel", "Telemetry", "Data Analysis"]
-cover_image: ""
+cover_image: "/assets/img/esds.jpg"
 ---
 
 This project is the knowledge base behind the site: articles, notes, and a growing set of practical templates.
