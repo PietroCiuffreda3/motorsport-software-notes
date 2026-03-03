@@ -436,7 +436,7 @@ pre code{
 
 /* Motion + focus affordances (UI fluidity without being flashy) */
 .u-card,
-.u-news-card{
+.u-news-card.u-stats{
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
   margin-bottom: 2.5rem;
 }
