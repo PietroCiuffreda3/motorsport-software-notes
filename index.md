@@ -56,7 +56,8 @@ title: Motorsport Software Notes
     <div class="u-stats__row">
       <div class="u-stats__item">
         <div class="u-stats__label">Articles</div>
-        {% assign unique_posts = site.posts | group_by: 'url' %} {{ unique_posts | size }}
+        {% assign unique_posts = site.posts | group_by: 'url' %}
+        <div class="u-stats__value">{{ unique_posts | size }}</div>
       </div>
 
       <div class="u-stats__divider" aria-hidden="true"></div>
@@ -78,6 +79,8 @@ title: Motorsport Software Notes
       <a class="u-btn" href="{{ '/results/' | relative_url }}">Open results</a>
     </div>
   </section>
+
+  <div class="u-section-spacer" aria-hidden="true"></div>
 
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}

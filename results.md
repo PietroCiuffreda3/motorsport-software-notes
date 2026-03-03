@@ -13,11 +13,17 @@ permalink: /results/
     {% assign meta = stint.items | first %}
     <section class="u-stint" aria-label="{{ meta.team_name }} stint">
       <header class="u-stint__header">
-        <img src="{{ '/assets/teams/logo_SiLo.png' | relative_url }}" alt="SiLo Racing logo">loading="lazy">
+        {% assign _logo = meta.team_logo | default: '/assets/teams/logo_SiLo.png' %}
+        <img class="u-stint__logo" src="{{ _logo | relative_url }}" alt="{{ meta.team_name }} logo" loading="lazy">
         <div class="u-stint__meta">
           <div class="u-stint__title">{{ meta.team_name }}</div>
           <div class="u-stint__dates">
-            {{ meta.stint_start | date: "%b %-d, %Y" }} → {{ meta.stint_end }}
+            {{ meta.stint_start | date: "%b %-d, %Y" }} →
+            {% if meta.stint_end and meta.stint_end != 'present' %}
+              {{ meta.stint_end | date: "%b %-d, %Y" }}
+            {% else %}
+              present
+            {% endif %}
           </div>
         </div>
       </header>
