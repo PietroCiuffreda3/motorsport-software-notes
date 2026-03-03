@@ -26,6 +26,8 @@ title: Motorsport Software Notes
   </nav>
 </div>
 
+<div class="u-section-spacing"></div>
+
 <div class="u-wrapper">
   <h1 class="u-section-title">Latest</h1>
   <div class="u-feature" aria-label="Featured project">
@@ -51,7 +53,9 @@ title: Motorsport Software Notes
       </div>
     {% endif %}
   </div>
+
 <div class="u-section-spacing"></div>
+
   <section class="u-news-card u-stats" aria-label="Site stats">
     <div class="u-stats__row">
       <div class="u-stats__item">
@@ -80,7 +84,7 @@ title: Motorsport Software Notes
     </div>
   </section>
 
-  <div class="u-section-spacer" aria-hidden="true"></div>
+  <div class="u-section-spacing"></div>
 
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
@@ -105,7 +109,7 @@ title: Motorsport Software Notes
       </div>
     {% endfor %}
   </div>
-
+<div class="u-section-spacing"></div>
   <div class="u-home-ctas" aria-label="Browse all content">
     <a class="u-btn u-btn--primary" href="{{ '/project/' | relative_url }}">All projects</a>
     <a class="u-btn" href="{{ '/articles/' | relative_url }}">All articles</a>
