@@ -86,7 +86,7 @@ title: Motorsport Software Notes
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
     {% assign _grouped_posts = site.posts | group_by: 'url' %}
     {% for g in _grouped_posts limit: 6 %}
-      {% assign post = g.items[0] %}
+      {% assign post = g.items | first %}
       <div class="u-news-card">
         <div class="u-news-card__img">
           {% if post.hero %}

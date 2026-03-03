@@ -8,7 +8,8 @@ permalink: /project/
 {% assign _grouped_projects = site.projects | group_by: 'url' %}
 {% assign projects = '' | split: '' %}
 {% for g in _grouped_projects %}
-  {% assign projects = projects | push: g.items[0] %}
+  {% assign _p = g.items | first %}
+  {% assign projects = projects | push: _p %}
 {% endfor %}
 {% assign projects = projects | sort: "date" | reverse %}
 

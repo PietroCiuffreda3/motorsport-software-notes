@@ -13,7 +13,7 @@ permalink: /articles/
       {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
       {% assign _grouped_posts = site.posts | group_by: 'url' %}
       {% for g in _grouped_posts %}
-        {% assign post = g.items[0] %}
+        {% assign post = g.items | first %}
         <article class="x-card">
           <a class="x-card__media" href="{{ post.url | relative_url }}">
             {% if post.hero %}
