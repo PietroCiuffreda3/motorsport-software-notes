@@ -31,6 +31,11 @@ collections:
     output: true
     permalink: /results/:name/
 
+exclude:
+  - api/_posts
+  - api/_projects
+  - api/_results
+
 defaults:
   - scope:
       path: ""

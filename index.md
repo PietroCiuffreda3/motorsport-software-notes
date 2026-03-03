@@ -52,9 +52,7 @@ title: Motorsport Software Notes
       </div>
     {% endif %}
   </div>
-
-<div class="u-section-spacing"></div>
-
+ <div class="u-section-spacing">
   <section class="u-news-card u-stats" aria-label="Site stats">
     <div class="u-stats__row">
       <div class="u-stats__item">
@@ -82,8 +80,7 @@ title: Motorsport Software Notes
       <a class="u-btn" href="{{ '/results/' | relative_url }}">Open results</a>
     </div>
   </section>
-
-  <div class="u-section-spacing"></div>
+</div>
 
   <div class="u-news-grid">
     {%- comment -%}Defensive de-duplication by URL (some deploy setups can surface duplicates){%- endcomment -%}
@@ -108,7 +105,7 @@ title: Motorsport Software Notes
       </div>
     {% endfor %}
   </div>
-<div class="u-section-spacing"></div>
+
   <div class="u-home-ctas" aria-label="Browse all content">
     <a class="u-btn u-btn--primary" href="{{ '/project/' | relative_url }}">All projects</a>
     <a class="u-btn" href="{{ '/articles/' | relative_url }}">All articles</a>
