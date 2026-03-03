@@ -3,7 +3,7 @@ title: Endurance Stint Decision System
 subtitle: An Excel-based pit wall tool for fuel risk, tyre degradation, and stint stability.
 date: 2026-03-03
 status: MVP (Excel)
-hero: /assets/img/esds.png
+hero: /assets/img/notes.jpg
 ---
 
 ## What this is

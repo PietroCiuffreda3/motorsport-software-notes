@@ -56,7 +56,7 @@ title: Motorsport Software Notes
     <div class="u-stats__row">
       <div class="u-stats__item">
         <div class="u-stats__label">Articles</div>
-        <div class="u-stats__value">{{ site.posts | size }}</div>
+        {% assign unique_posts = site.posts | group_by: 'url' %} {{ unique_posts | size }}
       </div>
 
       <div class="u-stats__divider" aria-hidden="true"></div>
