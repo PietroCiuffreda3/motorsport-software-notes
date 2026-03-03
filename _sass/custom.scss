@@ -1872,3 +1872,57 @@ html, body { overflow-x: hidden; }
 @media (max-width: 820px){
   .contact-menu__grid{ grid-template-columns: 1fr; }
 }
+.statsCard{
+  padding:14px 16px;
+}
+
+.statsRow{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+}
+
+.statItem__label{
+  font-size:12px;
+  opacity:.8;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.statItem__value{
+  margin-top:6px;
+  font-size:clamp(20px, 2.2vw, 28px);
+  font-weight:750;
+  letter-spacing:-0.02em;
+  line-height:1.05;
+}
+
+.statDivider{
+  width:1px;
+  height:44px;
+  opacity:.12;
+  background:currentColor;
+}
+
+.statsCtaRow{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.10);
+  display:flex;
+  justify-content:flex-end;
+}
+
+.statsLink{
+  font-size:13px;
+  text-decoration:none;
+  opacity:.9;
+}
+
+@media (max-width:720px){
+  .statsRow{
+    grid-template-columns:1fr;
+  }
+  .statDivider{ display:none; }
+  .statsCtaRow{ justify-content:flex-start; }
+}

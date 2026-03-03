@@ -52,27 +52,31 @@ title: Motorsport Software Notes
     {% endif %}
   </div>
 
-  <section class="statsGrid">
-  <article class="card statCard">
-    <div class="card__content statCard__content">
-      <div class="statCard__value">{{ site.posts | size }}</div>
-      <div class="statCard__label">Articles</div>
+  <section class="card statsCard">
+  <div class="statsRow">
+    <div class="statItem">
+      <div class="statItem__label">Articles</div>
+      <div class="statItem__value">{{ site.posts | size }}</div>
     </div>
-  </article>
 
-  <article class="card statCard">
-    <div class="card__content statCard__content">
-      <div class="statCard__value">{{ site.projects | size }}</div>
-      <div class="statCard__label">Projects</div>
-    </div>
-  </article>
+    <div class="statDivider" aria-hidden="true"></div>
 
-  <article class="card statCard">
-    <div class="card__content statCard__content">
-      <div class="statCard__value">{{ site.tags | size }}</div>
-      <div class="statCard__label">Topics</div>
+    <div class="statItem">
+      <div class="statItem__label">Projects</div>
+      <div class="statItem__value">{{ site.projects | size }}</div>
     </div>
-  </article>
+
+    <div class="statDivider" aria-hidden="true"></div>
+
+    <div class="statItem">
+      <div class="statItem__label">Race results</div>
+      <div class="statItem__value">{{ site.results | size }}</div>
+    </div>
+  </div>
+
+  <div class="statsCtaRow">
+    <a class="statsLink" href="/race-results">View results →</a>
+  </div>
 </section>
 
   <div class="u-news-grid">

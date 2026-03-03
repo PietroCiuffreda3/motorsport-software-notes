@@ -27,6 +27,8 @@ collections:
   projects:
     output: true
     permalink: /project/:name/
+  results:
+    output: true
 
 defaults:
   - scope:
