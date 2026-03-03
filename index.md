@@ -26,7 +26,6 @@ title: Motorsport Software Notes
   </nav>
 </div>
 
-<div class="u-section-spacing"></div>
 
 <div class="u-wrapper">
   <h1 class="u-section-title">Latest</h1>
